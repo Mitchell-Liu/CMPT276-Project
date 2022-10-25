@@ -6,7 +6,7 @@ package com.group20;
  * Entities all share position attribute
  */
 
-public class Entity {
+public class Entity implements Drawable{
     
     private Position pos;
 
@@ -17,6 +17,14 @@ public class Entity {
 
     public Position getPosition(){
         return this.pos;
+    }
+
+    public void draw(){
+        //Implement later
+    }
+
+    public void erase(){
+        //Implement later
     }
 
 }
