@@ -3,6 +3,7 @@ import java.awt.Color;
 
 import javax.swing.*;
 
+
 public class Frame extends JFrame{
 
 	
@@ -24,6 +25,8 @@ public class Frame extends JFrame{
 		this.add(label);
 		this.setVisible(true);
 	}
-
+	
+	
+	
 	
 }
