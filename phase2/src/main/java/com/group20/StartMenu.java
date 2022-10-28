@@ -1,0 +1,73 @@
+package com.group20;
+import java.awt.Color;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+
+public class StartMenu extends JFrame{
+
+	
+	JLabel label;
+	
+	
+	StartMenu(){		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500,500);
+		this.setLayout(null);
+		
+		
+		ImageIcon logo = new ImageIcon();
+        try {
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("shark.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		logo=resize(logo,100,200);
+		setLayout(new BorderLayout());
+        getContentPane().add(new JLabel(logo),BorderLayout.NORTH);
+
+		JPanel buttonsC = new JPanel();
+        buttonsC.setBackground(Color.black);
+        //buttonsC.setLayout(new FlowLayout(FlowLayout.LEADING,20,10));
+        buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
+        ClickButton startButton = new ClickButton("Start Game");
+		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //PacWindow pw = new PacWindow();
+                //new PacWindow();
+                dispose();
+				System.exit(0);
+            }
+        });
+
+		buttonsC.add(startButton);
+		getContentPane().add(buttonsC);
+		setVisible(true);
+/* 
+		label = new JLabel();
+		label.setBounds(0, 0, 100, 100);
+		label.setIcon(logo);
+		this.getContentPane().setBackground(Color.black);
+		this.add(label);
+		this.setVisible(true);
+		*/
+	}
+	
+	private static ImageIcon resize(ImageIcon image, int width, int height) {
+        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = (Graphics2D) bi.createGraphics();
+        g2d.addRenderingHints(//  ww  w  . jav  a2 s. c o m
+                new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(image.getImage(), 0, 0, width, height, null);
+        g2d.dispose();
+        return new ImageIcon(bi);
+    }
+	
+	
+}
