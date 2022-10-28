@@ -22,16 +22,16 @@ public class keyListener implements KeyListener {
 		switch(e.getKeyCode()) {
             case 37: 
             System.out.print("up");
-                event.left=1;
+                eventManager.left=1;
                 break;
             case 38: 
-                event.down=1;
+                eventManager.down=1;
                 break;
             case 39: 
-                event.up=1;
+                eventManager.up=1;
                 break;
             case 40:
-                event.right=1;
+                eventManager.right=1;
                 break;
         }
     }
@@ -40,16 +40,17 @@ public class keyListener implements KeyListener {
     public void keyReleased(KeyEvent e){
         switch(e.getKeyCode()) {
             case 37: 
-                event.left=0;
+            System.out.print("up");
+                eventManager.left=0;
                 break;
             case 38: 
-                event.down=0;
+                eventManager.down=0;
                 break;
             case 39: 
-                event.up=0;
+                eventManager.up=0;
                 break;
             case 40:
-                event.right=0;
+                eventManager.right=0;
                 break;
         }
     }
