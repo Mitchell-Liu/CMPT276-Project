@@ -32,15 +32,14 @@ public class StartMenu extends JFrame{
 
 		JPanel buttonsC = new JPanel();
         buttonsC.setBackground(Color.black);
-        //buttonsC.setLayout(new FlowLayout(FlowLayout.LEADING,20,10));
+        
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Start Game");
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //PacWindow pw = new PacWindow();
-                //new PacWindow();
+            
                 dispose();
 				System.exit(0);
             }
