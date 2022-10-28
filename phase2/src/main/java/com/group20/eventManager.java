@@ -2,17 +2,20 @@ package com.group20;
 
 
 public class eventManager {
-    int up,down,right,left=0;
+    static int up,down,right,left=0;
+    private eventManager event=new eventManager();
     eventManager(){
-        new keyListener(this);
+        new keyListener(event);
 
-        
+
 
     }
 
+    
+
 
     //each tick, event manager will call this function to get the direction
-     public direction Direction(){
+     public static direction Direction(){
          int add=(up+down+right+left);
          if(add>1 || add==0 ){
              
