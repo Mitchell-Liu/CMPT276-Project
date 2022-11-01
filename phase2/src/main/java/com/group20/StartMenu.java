@@ -16,7 +16,7 @@ public class StartMenu extends JFrame{
 	
 	StartMenu(){		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(800,800);
+		this.setSize(1000,800);
 		this.setLayout(null);
 		
 		
@@ -35,7 +35,11 @@ public class StartMenu extends JFrame{
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Start Game");
+        ClickButton exitButton = new ClickButton("exit Game");
+
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,8 +48,17 @@ public class StartMenu extends JFrame{
 				//System.exit(0);
             }
         });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+				
+                dispose();
+				System.exit(0);
+            }
+        });
 
 		buttonsC.add(startButton);
+        buttonsC.add(exitButton);
 		getContentPane().add(buttonsC);
 		setVisible(true);
 

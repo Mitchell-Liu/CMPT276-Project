@@ -5,14 +5,7 @@ import java.awt.*;
 public class eventManager implements KeyListener{
     
 	
-	
 
-	
-
-
-
-
-     
      int up,down,right,left;
      JTextArea ta;
     //private eventManager event=new eventManager();

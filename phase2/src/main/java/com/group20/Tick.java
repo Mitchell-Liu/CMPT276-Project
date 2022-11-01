@@ -10,7 +10,7 @@ public class Tick implements Runnable{
     public void run(){
         while(true){
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.MILLISECONDS.sleep(500);
                 //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);
