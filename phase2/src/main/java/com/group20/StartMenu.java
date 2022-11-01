@@ -16,7 +16,7 @@ public class StartMenu extends JFrame{
 	
 	StartMenu(){		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(500,500);
+		this.setSize(800,800);
 		this.setLayout(null);
 		
 		
@@ -39,23 +39,16 @@ public class StartMenu extends JFrame{
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            
+				new gameWindow();
                 dispose();
-				System.exit(0);
+				//System.exit(0);
             }
         });
 
 		buttonsC.add(startButton);
 		getContentPane().add(buttonsC);
 		setVisible(true);
-/* 
-		label = new JLabel();
-		label.setBounds(0, 0, 100, 100);
-		label.setIcon(logo);
-		this.getContentPane().setBackground(Color.black);
-		this.add(label);
-		this.setVisible(true);
-		*/
+
 	}
 	
 	private static ImageIcon resize(ImageIcon image, int width, int height) {
