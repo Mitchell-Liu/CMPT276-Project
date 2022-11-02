@@ -16,13 +16,13 @@ public class StartMenu extends JFrame{
 	
 	StartMenu(){		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(500,500);
+		this.setSize(1000,800);
 		this.setLayout(null);
 		
 		
 		ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("shark.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/shark.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,27 +35,44 @@ public class StartMenu extends JFrame{
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Start Game");
+        ClickButton exitButton = new ClickButton("exit Game");
+
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            
+				new gameWindow();
+                dispose();
+				//System.exit(0);
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+				
                 dispose();
 				System.exit(0);
             }
         });
+        
+
+        Timer timer=new Timer();
+        
 
 		buttonsC.add(startButton);
+        buttonsC.add(exitButton);
+
+        buttonsC.add(timer);
+        
+
 		getContentPane().add(buttonsC);
 		setVisible(true);
-/* 
-		label = new JLabel();
-		label.setBounds(0, 0, 100, 100);
-		label.setIcon(logo);
-		this.getContentPane().setBackground(Color.black);
-		this.add(label);
-		this.setVisible(true);
-		*/
+        
+        
+        
+
 	}
 	
 	private static ImageIcon resize(ImageIcon image, int width, int height) {
