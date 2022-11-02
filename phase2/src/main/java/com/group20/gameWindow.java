@@ -22,12 +22,24 @@ public class gameWindow extends JFrame{
 
         ImageIcon backGround = new ImageIcon();
         try {
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("backGround.jpg")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/backGround.jpg")));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        setContentPane(new JLabel(backGround));
 
+        
+        setContentPane(new JLabel(backGround));
+        setLayout(new FlowLayout());
+        Timer timer=new Timer();
+        JPanel timerPane =new JPanel(new BorderLayout());
+        timerPane.add(timer);
+        timerPane.setBackground(Color.black);
+        //timerPane.setLayout(new FlowLayout());
+        add(timerPane, BorderLayout.EAST);
+        eventManager event=new eventManager();
+        addKeyListener(event);
+        Tick tick=new Tick(event);
+        
 
        
     }
