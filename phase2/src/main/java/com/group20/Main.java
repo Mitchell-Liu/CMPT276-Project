@@ -7,12 +7,13 @@
  public class Main {
    public static void main(String[] argv) throws Exception {
     
-    GameBoard test = new GameBoard();
+    DefaultGameFactory factory1 = new DefaultGameFactory();
+    GameInstance test = new GameInstance(factory1);
     
     
+   } 
     
-    
-    StartMenu menu=new StartMenu();
+    /*StartMenu menu=new StartMenu();
     eventManager event=new eventManager();
     menu.addKeyListener(event);
     //this.addKeyListener(new eventManager());
@@ -46,27 +47,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
- }
-
-
-
-
-
-
-
-
-
+ }*/
 
 }
 

@@ -24,7 +24,7 @@ public class Map {
 
 
     public void setDiver(Diver player){
-        diver = player;
+        this.diver = player;
         this.setEntityAt(player, player.getPosition());
 
     }
@@ -43,10 +43,10 @@ public class Map {
 
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();
-        Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()+1);
-        if(this.positionIsVacant(currentPosition)){
-            entities[diver.getPosition().getX()][diver.getPosition().getY()] = null;
-            entities[diver.getPosition().getX()][diver.getPosition().getY()+1] = diver;
+        Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);
+        if(this.positionIsVacant(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
@@ -57,10 +57,10 @@ public class Map {
 
     public boolean moveDiverDown(){
         Position currentPosition = diver.getPosition();
-        Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);
-        if(this.positionIsVacant(currentPosition)){
-            entities[diver.getPosition().getX()][diver.getPosition().getY()] = null;
-            entities[diver.getPosition().getX()][diver.getPosition().getY()-1] = diver;
+        Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()+1);
+        if(this.positionIsVacant(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
@@ -72,9 +72,9 @@ public class Map {
     public boolean moveDiverLeft(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()-1,diver.getPosition().getY());
-        if(this.positionIsVacant(currentPosition)){
-            entities[diver.getPosition().getX()][diver.getPosition().getY()] = null;
-            entities[diver.getPosition().getX()-1][diver.getPosition().getY()] = diver;
+        if(this.positionIsVacant(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
@@ -86,9 +86,9 @@ public class Map {
     public boolean moveDiverRight(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()+1,diver.getPosition().getY());
-        if(this.positionIsVacant(currentPosition)){
-            entities[diver.getPosition().getX()][diver.getPosition().getY()] = null;
-            entities[diver.getPosition().getX()+1][diver.getPosition().getY()] = diver;
+        if(this.positionIsVacant(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
@@ -134,6 +134,28 @@ public class Map {
         }
         else{
 
+        }
+    }
+
+    public void setBorderWalls(){
+        for(int i = 0; i<20; i++){
+            Position pos = new Position(i, 0);
+            this.placeWall(pos);
+        }
+
+        for(int i = 0; i<20; i++){
+            Position pos = new Position(i, 19);
+            this.placeWall(pos);
+        }
+
+        for(int i = 0; i<20; i++){
+            Position pos = new Position(0, i);
+            this.placeWall(pos);
+        }
+
+        for(int i = 0; i<20; i++){
+            Position pos = new Position(19, i);
+            this.placeWall(pos);
         }
     }
 

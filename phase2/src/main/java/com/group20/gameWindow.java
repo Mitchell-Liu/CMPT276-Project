@@ -36,9 +36,9 @@ public class gameWindow extends JFrame{
         timerPane.setBackground(Color.black);
         //timerPane.setLayout(new FlowLayout());
         add(timerPane, BorderLayout.EAST);
-        eventManager event=new eventManager();
-        addKeyListener(event);
-        Tick tick=new Tick(event);
+        //eventManager event=new eventManager();
+        //addKeyListener(event);
+        //Tick tick=new Tick(event);
         
 
        

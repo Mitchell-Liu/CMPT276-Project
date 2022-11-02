@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.awt.image.BufferedImage;
 
 
-public class PlayArea extends JPanel{
+public class Board extends JPanel{
 
 
 
@@ -22,7 +22,7 @@ public class PlayArea extends JPanel{
     JLabel[][] board;
     ImageIcon[] icons;
     
-    PlayArea(Map gameMap){
+    Board(Map gameMap){
 
         map = gameMap;
 
@@ -73,25 +73,7 @@ public class PlayArea extends JPanel{
         return map;
     }
 
-    public void setBoard(){
-        for(int i =0; i<20; i++){
-            map.placeWall(new Position(i, 0));
-        }
-        for(int i =0; i<20; i++){
-            map.placeWall(new Position(i, 19));
-        }
-        for(int i =0; i<20; i++){
-            map.placeWall(new Position(0, i));
-        }
-        for(int i =0; i<20; i++){
-            map.placeWall(new Position(19, i));
-        }
-        Diver player = new Diver(new Position(1, 10));
-        map.setDiver(player);
-        
-        this.updateBoard();
-    }
-
+    
     public void updateBoard(){
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
@@ -105,10 +87,13 @@ public class PlayArea extends JPanel{
                         break;
                     case "com.group20.Wall":
                         board[i][j].setIcon(icons[5]);
-                        break;    
+                        break; 
+                    default:
+                        board[i][j].setIcon(null);    
 
                 }
             }
+            System.out.print("\n");
         }
     }
 }

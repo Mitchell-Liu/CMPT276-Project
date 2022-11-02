@@ -8,17 +8,15 @@ public class eventManager implements KeyListener{
 
      int up,down,right,left;
      JTextArea ta;
-     PlayArea board;
+     Board board;
      Map map;
      Diver diver;
      JFrame frame;
     //private eventManager event=new eventManager();
-    public eventManager(Diver player, Map gameMap, PlayArea playarea, JFrame gameFrame){
+    public eventManager(Map gameMap, Board playarea){
        
         map = gameMap;
         board = playarea;
-        diver = player;
-        frame = gameFrame;
          up=0;
          down=0;
          right=0;
@@ -42,32 +40,24 @@ public class eventManager implements KeyListener{
                 left=1;
                 map.moveDiverLeft();
                 board.updateBoard();
-                frame.add(board);
-                //System.out.print("left");
                 break;
             case 38: 
             
                 up=1;
                 map.moveDiverUp();
                 board.updateBoard();
-                frame.add(board);
-                //System.out.print("up");
                 break;
             case 39: 
             
                 right=1;
                 map.moveDiverRight();
                 board.updateBoard();
-                frame.add(board);
-                //System.out.print("right");
                 break;
             case 40:
            
                 down=1;
                 map.moveDiverDown();
                 board.updateBoard();
-                frame.add(board);
-                //System.out.print("down");
                 break;
         }
     }
