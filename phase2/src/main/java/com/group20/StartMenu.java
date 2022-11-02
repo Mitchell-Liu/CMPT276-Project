@@ -22,7 +22,7 @@ public class StartMenu extends JFrame{
 		
 		ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("shark.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/shark.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,11 +56,22 @@ public class StartMenu extends JFrame{
 				System.exit(0);
             }
         });
+        
+
+        Timer timer=new Timer();
+        
 
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
+
+        buttonsC.add(timer);
+        
+
 		getContentPane().add(buttonsC);
 		setVisible(true);
+        
+        
+        
 
 	}
 	
