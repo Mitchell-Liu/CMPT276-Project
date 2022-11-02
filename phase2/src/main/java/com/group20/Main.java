@@ -1,4 +1,7 @@
  package com.group20;
+ import java.util.Timer;
+ import java.util.TimerTask;
+ import java.util.concurrent.TimeUnit;
  
  
  public class Main {
@@ -9,7 +12,7 @@
     
     
     
-    /*StartMenu menu=new StartMenu();
+    StartMenu menu=new StartMenu();
     eventManager event=new eventManager();
     menu.addKeyListener(event);
     //this.addKeyListener(new eventManager());
@@ -37,7 +40,7 @@
         
       }
     }
-     /* 
+      
     Timer t = new Timer();  
     TimerTask tt = new TimerTask() {  
 
