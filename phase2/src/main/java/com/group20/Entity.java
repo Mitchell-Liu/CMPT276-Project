@@ -10,9 +10,8 @@ public class Entity implements Drawable{
     
     private Position pos;
 
-    public void setPosition(int x, int y){
-        this.pos.setX(x);
-        this.pos.setY(y);
+    public void setPosition(Position position){
+        this.pos = position;
     }
 
     public Position getPosition(){

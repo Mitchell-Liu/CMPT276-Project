@@ -5,7 +5,13 @@
  import java.util.concurrent.TimeUnit;
  public class Main {
    public static void main(String[] argv) throws Exception {
-    StartMenu menu=new StartMenu();
+    
+    GameBoard test = new GameBoard();
+    
+    
+    
+    
+    /*StartMenu menu=new StartMenu();
     eventManager event=new eventManager();
     menu.addKeyListener(event);
     //this.addKeyListener(new eventManager());
