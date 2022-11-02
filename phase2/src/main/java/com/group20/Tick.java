@@ -5,10 +5,13 @@ public class Tick implements Runnable{
     
     Tick(eventManager event){
         this.event=event;
+        Thread thread = new Thread(this);
+            thread.start();
     }
 
     public void run(){
         while(true){
+            
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
                 //Thread.sleep(2000);
