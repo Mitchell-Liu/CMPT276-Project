@@ -6,7 +6,7 @@ package com.group20;
  * Entities all share position attribute
  */
 
-public class Entity implements Drawable{
+public class Entity {
     
     private Position pos;
 
@@ -18,12 +18,17 @@ public class Entity implements Drawable{
         return this.pos;
     }
 
-    public void draw(){
-        //Implement later
+    public Boolean isCollectible(){
+        if(this.getClass().getSuperclass().getSimpleName().equals("Collectible")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    public void erase(){
-        //Implement later
+    public int getValue(){
+        return 0;
     }
 
 }

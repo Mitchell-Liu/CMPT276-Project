@@ -15,6 +15,22 @@ public class Map {
 
     Map(){
         entities = new Entity[20][20];
+        playerScore = 0;
+    }
+
+    public void placeCoin(Position pos){
+        Coin coin = new Coin(pos);
+        entities[coin.getPosition().getX()][coin.getPosition().getY()] = coin;
+    }
+
+    public void placeTreasureChest(Position pos){
+        TreasureChest treasure = new TreasureChest(pos);
+        entities[treasure.getPosition().getX()][treasure.getPosition().getY()] = treasure;
+    }
+
+    public void placeSeaweed(Position pos){
+        Seaweed seaweed = new Seaweed(pos);
+        entities[seaweed.getPosition().getX()][seaweed.getPosition().getY()] = seaweed;
     }
 
     public void placeWall(Position position){
@@ -50,6 +66,16 @@ public class Map {
             diver.setPosition(newPosition);
             return true;
         }
+        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
+            int value = this.getEntityAt(newPosition).getValue();
+            this.removeEntityAt(newPosition);
+            playerScore += value;
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
+            diver.setPosition(newPosition);
+            System.out.println("Player Score: "+playerScore);
+            return true;
+        }
         else{
             return false;
         }
@@ -62,6 +88,16 @@ public class Map {
             entities[currentPosition.getX()][currentPosition.getY()] = null;
             entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
+            int value = this.getEntityAt(newPosition).getValue();
+            this.removeEntityAt(newPosition);
+            playerScore += value;
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
+            diver.setPosition(newPosition);
+            System.out.println("Player Score: "+playerScore);
             return true;
         }
         else{
@@ -78,6 +114,16 @@ public class Map {
             diver.setPosition(newPosition);
             return true;
         }
+        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
+            int value = this.getEntityAt(newPosition).getValue();
+            this.removeEntityAt(newPosition);
+            playerScore += value;
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
+            diver.setPosition(newPosition);
+            System.out.println("Player Score: "+playerScore);
+            return true;
+        }
         else{
             return false;
         }
@@ -90,6 +136,16 @@ public class Map {
             entities[currentPosition.getX()][currentPosition.getY()] = null;
             entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
+            int value = this.getEntityAt(newPosition).getValue();
+            this.removeEntityAt(newPosition);
+            playerScore += value;
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = diver;
+            diver.setPosition(newPosition);
+            System.out.println("Player Score: "+playerScore);
             return true;
         }
         else{
@@ -135,6 +191,10 @@ public class Map {
         else{
 
         }
+    }
+
+    public void removeEntityAt(Position pos){
+        entities[pos.getX()][pos.getY()] = null;
     }
 
     public void setBorderWalls(){

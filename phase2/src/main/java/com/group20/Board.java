@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.Color;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
@@ -88,12 +86,20 @@ public class Board extends JPanel{
                     case "com.group20.Wall":
                         board[i][j].setIcon(icons[5]);
                         break; 
+                    case "com.group20.Coin":
+                        board[i][j].setIcon(icons[0]);
+                        break;
+                    case "com.group20.TreasureChest":
+                        board[i][j].setIcon(icons[4]);
+                        break;
+                    case "com.group20.Seaweed":
+                        board[i][j].setIcon(icons[2]);
+                        break;            
                     default:
                         board[i][j].setIcon(null);    
 
                 }
             }
-            System.out.print("\n");
         }
     }
 }

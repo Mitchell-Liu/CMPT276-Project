@@ -10,7 +10,8 @@
     DefaultGameFactory factory1 = new DefaultGameFactory();
     GameInstance test = new GameInstance(factory1);
     
-    
+
+  
    } 
     
     /*StartMenu menu=new StartMenu();
