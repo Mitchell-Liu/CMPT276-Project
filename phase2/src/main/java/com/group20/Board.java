@@ -25,8 +25,8 @@ public class Board extends JPanel{
         map = gameMap;
 
         board = new JLabel[20][20];
-
-        File path = new File(System.getProperty("user.dir")+"/project/phase2/src/main/java/com/group20/Assets");
+        
+        File path = new File("./phase2/src/main/java/com/group20/Assets");
 
         File[] allFiles = path.listFiles();
 
