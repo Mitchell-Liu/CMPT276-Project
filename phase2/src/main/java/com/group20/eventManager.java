@@ -38,26 +38,25 @@ public class eventManager implements KeyListener{
             case 37: 
            
                 left=1;
-                map.moveDiverLeft();
-                board.updateBoard();
+                
                 break;
             case 38: 
             
                 up=1;
-                map.moveDiverUp();
-                board.updateBoard();
+                //map.moveDiverUp();
+                //board.updateBoard();
                 break;
             case 39: 
             
                 right=1;
-                map.moveDiverRight();
-                board.updateBoard();
+               // map.moveDiverRight();
+                //board.updateBoard();
                 break;
             case 40:
            
                 down=1;
-                map.moveDiverDown();
-                board.updateBoard();
+                //map.moveDiverDown();
+                //board.updateBoard();
                 break;
         }
     }
@@ -111,5 +110,6 @@ public class eventManager implements KeyListener{
      }
      
 
+     Tick tick=new Tick(this);
 
 }
