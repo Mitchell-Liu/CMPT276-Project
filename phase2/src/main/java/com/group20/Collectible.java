@@ -1,15 +1,16 @@
 package com.group20;
 
-public class Collectible {
+public class Collectible extends Entity{
     
-    private boolean collected;
+    private int value;
 
-    public boolean getCollectStatus(){
-        return this.collected;
+    @Override
+    public int getValue(){
+        return value;
     }
 
-    public void setCollectStatus(boolean newStatus){
-        this.collected = newStatus;
+    public void setValue(int val){
+        value = val;
     }
 
 }
