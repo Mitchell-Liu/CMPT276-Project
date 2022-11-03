@@ -18,7 +18,7 @@ public class Entity implements Drawable{
     public Position getPosition(){
         return this.pos;
     }
-
+    
     public void draw(){
         //Implement later
     }

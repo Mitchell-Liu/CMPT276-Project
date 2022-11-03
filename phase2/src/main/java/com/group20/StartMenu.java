@@ -35,7 +35,7 @@ public class StartMenu extends JFrame{
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Start Game");
-        ClickButton exitButton = new ClickButton("exit Game");
+        ClickButton exitButton = new ClickButton("Exit Game");
 
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
