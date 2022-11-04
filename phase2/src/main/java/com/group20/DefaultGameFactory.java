@@ -5,7 +5,7 @@ public class DefaultGameFactory extends GameFactory{
         Map map = new Map();
         Diver diver = new Diver(new Position(1, 9));
         map.setDiver(diver);
-
+        
         //Placing all walls in default map
         map.setBorderWalls();
         for(int i = 5; i<17; i++){
@@ -50,11 +50,29 @@ public class DefaultGameFactory extends GameFactory{
         map.placeWall(new Position(15,14));
         map.placeWall(new Position(16,14));
 
-        map.placeCoin(new Position(13,9));
-        map.placeSeaweed(new Position(11, 9));
-        map.placeTreasureChest(new Position(9, 9));
+        map.placeCoin(new Position(9,9));
+        map.placeCoin(new Position(18, 1));
+        map.placeCoin(new Position(7, 16));
+        map.placeCoin(new Position(3, 4));
+        map.placeCoin(new Position(18, 18));
+        map.setCoinsRemaining(5);
 
+        map.placeSeaweed(new Position(7, 4));
+        map.placeSeaweed(new Position(17, 7));
+        map.placeSeaweed(new Position(16, 13));
+        map.placeSeaweed(new Position(4, 16));
+        map.placeSeaweed(new Position(8, 15));
+        map.placeSeaweed(new Position(7, 9));
+        map.placeSeaweed(new Position(13, 9));
+        map.placeSeaweed(new Position(10, 13));
+        map.placeSeaweed(new Position(15, 18));
 
+        map.placeTreasureChest(new Position(15, 3));
+        map.placeTreasureChest(new Position(5, 13));
+
+        Exit gameExit = new Exit(new Position(19, 14));
+        map.setExit(gameExit);
+        
 
         return map;
     }

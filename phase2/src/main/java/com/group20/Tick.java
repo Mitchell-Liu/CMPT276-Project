@@ -10,7 +10,7 @@ public class Tick implements Runnable{
     }
 
     public void run(){
-        while(true){
+        while(!event.map.isGameOver()){
             
           
             

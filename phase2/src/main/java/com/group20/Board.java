@@ -77,24 +77,27 @@ public class Board extends JPanel{
             for(int j=0; j<20; j++){
                 Position currPosition = new Position(i, j);
                 switch (map.getEntityNameAt(currPosition)){
-                    case "com.group20.Diver":
+                    case "Diver":
                         board[i][j].setIcon(icons[1]);
                         break;
-                    case "com.group20.Shark":
+                    case "Shark":
                         board[i][j].setIcon(icons[3]);
                         break;
-                    case "com.group20.Wall":
+                    case "Wall":
                         board[i][j].setIcon(icons[5]);
                         break; 
-                    case "com.group20.Coin":
+                    case "Coin":
                         board[i][j].setIcon(icons[0]);
                         break;
-                    case "com.group20.TreasureChest":
+                    case "TreasureChest":
                         board[i][j].setIcon(icons[4]);
                         break;
-                    case "com.group20.Seaweed":
+                    case "Seaweed":
                         board[i][j].setIcon(icons[2]);
-                        break;            
+                        break;
+                    case "Exit":
+                        board[i][j].setIcon(null);
+                        board[i][j].setText("EXIT");                
                     default:
                         board[i][j].setIcon(null);    
 
