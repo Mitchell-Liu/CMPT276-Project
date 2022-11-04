@@ -22,11 +22,11 @@ public class EndMenu extends JFrame{
 		
 		ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/shark.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/textfx.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
-		logo=resize(logo,100,200);
+		// logo=resize(logo,100,200);
 		setLayout(new BorderLayout());
         getContentPane().add(new JLabel(logo),BorderLayout.NORTH);
 
@@ -34,9 +34,10 @@ public class EndMenu extends JFrame{
         buttonsC.setBackground(Color.black);
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
-        ClickButton startButton = new ClickButton("Start Game");
-        ClickButton exitButton = new ClickButton("Exit Game");
+        ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
+        ClickButton exitButton = new ClickButton("Exit Game");
+        
 
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
