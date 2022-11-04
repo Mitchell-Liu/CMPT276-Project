@@ -66,22 +66,22 @@ public class eventManager implements KeyListener{
         switch(e.getKeyCode()) {
             case 37: 
            
-                left=0;
+                //left=0;
                 //System.out.print("left");
                 break;
             case 38: 
             
-                up=0;
+                //up=0;
                 //System.out.print("up");
                 break;
             case 39: 
             
-                right=0;
+                //right=0;
                 //System.out.print("right");
                 break;
             case 40:
            
-                down=0;
+                //down=0;
                 //System.out.print("down");
                 break;
         }
