@@ -9,27 +9,26 @@ public class GameInstance {
     GameInstance(GameFactory factory){
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
 
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
         eventManager keylistener = new eventManager(map, board);
-        JPanel scoreboard = new JPanel();
-        JTextPane score = new JTextPane();
-        JTextPane time = new JTextPane();
-        frame.setSize(615,660);
-        scoreboard.setBackground(Color.YELLOW);
-        scoreboard.setBounds(0,0,500,50);
-        score.setText("SCORE TEST");
-        time.setText("TEST TIME");
-        scoreboard.setLayout(new BorderLayout(100,0));
-        scoreboard.add(score,BorderLayout.WEST);
-        scoreboard.add(time, BorderLayout.EAST);
+        JPanel score = new JPanel();
+        JLabel scoreText = new JLabel("SCORE");
+        score.add(scoreText);
+        Timer timer = new Timer();
+        frame.setSize(815,635);
         board.setBounds(0,0,600,600); 
         frame.addKeyListener(keylistener); 
-
-        frame.add(board);
-        //frame.add(scoreboard, BorderLayout.NORTH);
+        //timer.setBounds(615,0,200,317);
+        //score.setBounds(615, 318, 200, 317);
+        board.setPreferredSize(new Dimension(600,600));
+        timer.setPreferredSize(new Dimension(200, 600));
+        frame.add(board, BorderLayout.CENTER);
+        frame.add(timer, BorderLayout.EAST);
+        //frame.add(score, BorderLayout.SOUTH);
+        
         frame.setVisible(true);
     }
 }

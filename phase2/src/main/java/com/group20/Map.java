@@ -11,11 +11,54 @@ public class Map {
     private Entity[][] entities;
     Diver diver;
     Shark shark1, shark2;
+    Exit exit;
     int coinsRemaining, playerScore;
+    Boolean gameOver, gameWin, gameLose;
 
     Map(){
         entities = new Entity[20][20];
         playerScore = 0;
+        gameWin = false;
+        gameLose = false;
+        gameOver = false;
+    }
+
+    public Boolean isGameOver(){
+        return this.gameOver;
+    }
+
+    public Boolean isGameLose(){
+        return this.gameLose;
+    }
+
+    public Boolean isGameWin(){
+        return this.gameWin;
+    }
+
+
+    public void setPlayerScore(int num){
+        this.playerScore = num;
+    }
+
+    public int getPlayerScore(){
+        return this.playerScore;
+    }
+
+    public void setCoinsRemaining(int num){
+        this.coinsRemaining = num;
+    }
+
+    public int getCoinsRemaining(){
+        return this.coinsRemaining;
+    }
+
+    public Boolean allCoinsCollected(){
+        if(coinsRemaining==0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public void placeCoin(Position pos){
@@ -57,6 +100,76 @@ public class Map {
         return diver.getPosition();
     }
 
+    public void setExit(Exit gameExit){
+        this.exit = gameExit;
+    }
+
+    public void openExit(){
+        this.removeEntityAt(exit.getPosition());
+        this.setEntityAt(exit, exit.getPosition());
+    }
+
+    public void manageCollisionAt(Position newPosition){
+        String name = getEntityNameAt(newPosition);
+        Position currentPosition = this.getDiverPosition();
+        int value;
+        switch(name){
+            case "Coin":
+                value = this.getEntityAt(newPosition).getValue();
+                this.removeEntityAt(newPosition);
+                this.setPlayerScore(this.getPlayerScore()+value);
+                this.removeEntityAt(currentPosition);
+                this.setEntityAt(diver, newPosition);
+                this.setDiverPosition(newPosition);
+                System.out.println("Player Score: "+playerScore);
+                this.setCoinsRemaining(this.getCoinsRemaining()-1);
+                System.out.println("Remaining Coins: "+coinsRemaining);
+                if(this.allCoinsCollected()){
+                    this.openExit();
+                    System.out.println(this.getEntityNameAt(new Position(19, 14)));
+                    System.out.println(this.positionIsVacant(new Position(19, 14)));
+                }
+                break;
+            case "TreasureChest":
+                value = this.getEntityAt(newPosition).getValue();
+                this.removeEntityAt(newPosition);
+                this.setPlayerScore(this.getPlayerScore()+value);
+                this.removeEntityAt(currentPosition);
+                this.setEntityAt(diver, newPosition);
+                this.setDiverPosition(newPosition);
+                System.out.println("Player Score: "+playerScore);
+                break;
+            case "Seaweed":
+                value = this.getEntityAt(newPosition).getValue();
+                this.removeEntityAt(newPosition);
+                this.setPlayerScore(this.getPlayerScore()+value);
+                this.removeEntityAt(currentPosition);
+                this.setEntityAt(diver, newPosition);
+                this.setDiverPosition(newPosition);
+                System.out.println("Player Score: "+playerScore);
+                break;
+            case "Exit":
+                this.removeEntityAt(newPosition);
+                this.removeEntityAt(currentPosition);
+                this.setEntityAt(diver, newPosition);
+                this.setDiverPosition(newPosition);
+                gameWin = true;
+                gameOver = true;
+                break; 
+            default:           
+
+        }
+    }
+
+    public Boolean positionisValid(Position pos){
+        if(pos.getX()>-1&&pos.getX()<20&&pos.getY()>-1&&pos.getY()<20){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);
@@ -66,14 +179,8 @@ public class Map {
             diver.setPosition(newPosition);
             return true;
         }
-        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
-            int value = this.getEntityAt(newPosition).getValue();
-            this.removeEntityAt(newPosition);
-            playerScore += value;
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            System.out.println("Player Score: "+playerScore);
+        else if(!this.positionIsVacant(newPosition)){
+            manageCollisionAt(newPosition);
             return true;
         }
         else{
@@ -84,20 +191,14 @@ public class Map {
     public boolean moveDiverDown(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()+1);
-        if(this.positionIsVacant(newPosition)){
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
             entities[currentPosition.getX()][currentPosition.getY()] = null;
             entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
-        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
-            int value = this.getEntityAt(newPosition).getValue();
-            this.removeEntityAt(newPosition);
-            playerScore += value;
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            System.out.println("Player Score: "+playerScore);
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
             return true;
         }
         else{
@@ -108,20 +209,14 @@ public class Map {
     public boolean moveDiverLeft(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()-1,diver.getPosition().getY());
-        if(this.positionIsVacant(newPosition)){
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
             entities[currentPosition.getX()][currentPosition.getY()] = null;
             entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
-        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
-            int value = this.getEntityAt(newPosition).getValue();
-            this.removeEntityAt(newPosition);
-            playerScore += value;
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            System.out.println("Player Score: "+playerScore);
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
             return true;
         }
         else{
@@ -132,20 +227,14 @@ public class Map {
     public boolean moveDiverRight(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()+1,diver.getPosition().getY());
-        if(this.positionIsVacant(newPosition)){
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
             entities[currentPosition.getX()][currentPosition.getY()] = null;
             entities[newPosition.getX()][newPosition.getY()] = diver;
             diver.setPosition(newPosition);
             return true;
         }
-        else if(!this.positionIsVacant(newPosition)&&this.getEntityAt(newPosition).isCollectible()){
-            int value = this.getEntityAt(newPosition).getValue();
-            this.removeEntityAt(newPosition);
-            playerScore += value;
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            System.out.println("Player Score: "+playerScore);
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
             return true;
         }
         else{
@@ -176,7 +265,7 @@ public class Map {
 
     public String getEntityNameAt(Position position){
         if(!this.positionIsVacant(position)){
-            return entities[position.getX()][position.getY()].getClass().getName();
+            return entities[position.getX()][position.getY()].getClass().getSimpleName();
         }
         else{
             return "Water";
