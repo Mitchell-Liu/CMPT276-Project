@@ -1,6 +1,9 @@
 package com.group20;
 
-import java.awt.*;  
+import java.awt.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class GameInstance {
@@ -9,6 +12,20 @@ public class GameInstance {
     GameInstance(GameFactory factory){
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon backGround = new ImageIcon();
+        try {
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("Assets/zbackGround.jpg")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = backGround.getImage();
+        Image scaled = image.getScaledInstance(815, 635, java.awt.Image.SCALE_SMOOTH);
+        backGround = new ImageIcon(scaled);
+
+        frame.setContentPane(new JLabel(backGround));
+        frame.setLayout(new FlowLayout());
+
+
         frame.setLayout(new BorderLayout());
 
         Map map = factory.makeMap();

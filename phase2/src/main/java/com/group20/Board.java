@@ -33,7 +33,8 @@ public class Board extends JPanel{
         allImages = new BufferedImage[allFiles.length];
 
         this.setLayout(null);
-        this.setBackground(Color.BLUE);
+        //this.setBackground(Color.BLUE);
+        this.setOpaque (false);
 
         labels = new JLabel[allFiles.length];
         icons = new ImageIcon[allFiles.length];

@@ -11,7 +11,7 @@ public class Timer extends JLabel  implements Runnable{
         super("0 s");
        // this.event=event;
         running=true;
-        this.setForeground(Color.yellow);
+        this.setForeground(Color.red);
         this.setOpaque(false);
         setFont(new Font("Serif", Font.PLAIN, 30));
         
