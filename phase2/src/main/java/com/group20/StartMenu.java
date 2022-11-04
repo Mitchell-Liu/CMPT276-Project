@@ -43,7 +43,8 @@ public class StartMenu extends JFrame{
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-				new gameWindow();
+				DefaultGameFactory factory1 = new DefaultGameFactory();
+                GameInstance test = new GameInstance(factory1);
                 dispose();
 				//System.exit(0);
             }

@@ -81,7 +81,30 @@ public class Map {
         entities[newWall.getPosition().getX()][newWall.getPosition().getY()] = newWall;
     }
 
+    public void setSharks(Shark shark1, Shark shark2){
+        this.shark1 = shark1;
+        this.shark2 = shark2;
+        this.setEntityAt(shark1, shark1.getPosition());
+        this.setEntityAt(shark2, shark2.getPosition());
+    }
+    public Shark getShark1(){
+        return shark1;
+    }
+    public Shark getShark2(){
+        return shark2;
+    }
+    public void setSharkPosition(Position position1, Position position2){
+        shark1.setPosition(position1);
+        shark2.setPosition(position2);
+    }
 
+    public Position getShark1Position(){
+        return shark1.getPosition();
+    }
+    public Position getShark2Position(){
+        return shark2.getPosition();
+    }
+    
     public void setDiver(Diver player){
         this.diver = player;
         this.setEntityAt(player, player.getPosition());
@@ -156,11 +179,15 @@ public class Map {
                 gameWin = true;
                 gameOver = true;
                 break; 
+            case "Shark":
+                gameLose = true;
+                gameOver = true;
+                new EndMenu();
             default:           
 
         }
     }
-
+    
     public Boolean positionisValid(Position pos){
         if(pos.getX()>-1&&pos.getX()<20&&pos.getY()>-1&&pos.getY()<20){
             return true;
@@ -169,7 +196,7 @@ public class Map {
             return false;
         }
     }
-
+    
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);

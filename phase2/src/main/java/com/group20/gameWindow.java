@@ -41,6 +41,9 @@ public class gameWindow extends JFrame{
         //Tick tick=new Tick(event);
         
 
+        // if(timer.time == 10){
+        //     new EndMenu();
+        // }
        
     }
     
