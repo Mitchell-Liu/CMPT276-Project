@@ -5,7 +5,7 @@ public class DefaultGameFactory extends GameFactory{
         Map map = new Map();
         Diver diver = new Diver(new Position(1, 9));
         map.setDiver(diver);
-
+        
         //Placing all walls in default map
         map.setBorderWalls();
         for(int i = 5; i<17; i++){
