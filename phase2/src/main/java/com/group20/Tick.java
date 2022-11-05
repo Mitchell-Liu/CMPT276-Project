@@ -39,7 +39,7 @@ public class Tick implements Runnable{
               break;
               case left:
               //System.out.println("left"); 
-              event.map.moveDiverLeft();
+                event.map.moveDiverLeft();
                 event.board.updateBoard();
                 
               break;

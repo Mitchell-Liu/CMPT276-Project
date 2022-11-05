@@ -26,7 +26,7 @@ public class GameInstance {
         frame.setLayout(new FlowLayout());
 
 
-        frame.setLayout(new BorderLayout());
+        //frame.setLayout(new BorderLayout());
 
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);

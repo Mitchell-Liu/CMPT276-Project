@@ -12,6 +12,7 @@ public class eventManager implements KeyListener{
      Map map;
      Diver diver;
      JFrame frame;
+     tickShark ts=new tickShark(this);
     //private eventManager event=new eventManager();
     public eventManager(Map gameMap, Board playarea){
        
@@ -21,7 +22,7 @@ public class eventManager implements KeyListener{
          down=0;
          right=0;
          left=0;
-
+        ts.start();
 
     }
 

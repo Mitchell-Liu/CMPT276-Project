@@ -183,8 +183,14 @@ public class Map {
                 gameLose = true;
                 gameOver = true;
                 new EndMenu();
+                break;
+            case "Diver":
+                //gameLose = true;
+                //gameOver = true;
+                //new EndMenu();
             default:           
 
+            
         }
     }
     
@@ -197,6 +203,87 @@ public class Map {
         }
     }
     
+
+
+
+    public boolean moveSharkUp(){
+        Position currentPosition = shark1.getPosition();
+        Position newPosition = new Position(shark1.getPosition().getX(),shark1.getPosition().getY()-1);
+        if(this.positionIsVacant(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = shark1;
+            shark1.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)){
+            manageCollisionAt(newPosition);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean moveSharkDown(){
+        Position currentPosition = shark1.getPosition();
+        Position newPosition = new Position(shark1.getPosition().getX(),shark1.getPosition().getY()+1);
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = shark1;
+            shark1.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean moveSharkLeft(){
+        Position currentPosition = shark1.getPosition();
+        Position newPosition = new Position(shark1.getPosition().getX()-1,shark1.getPosition().getY());
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = shark1;
+            shark1.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean moveSharkRight(){
+        Position currentPosition = shark1.getPosition();
+        Position newPosition = new Position(shark1.getPosition().getX()+1,shark1.getPosition().getY());
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            entities[currentPosition.getX()][currentPosition.getY()] = null;
+            entities[newPosition.getX()][newPosition.getY()] = shark1;
+            shark1.setPosition(newPosition);
+            return true;
+        }
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
+            manageCollisionAt(newPosition);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
+
+
+
+
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);
