@@ -14,7 +14,7 @@ public class GameInstance {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon backGround = new ImageIcon();
         try {
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("Assets/zbackGround.jpg")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("./Assets/zbackGround.jpg")));
         } catch (IOException e) {
             e.printStackTrace();
         }
