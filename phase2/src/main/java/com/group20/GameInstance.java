@@ -26,25 +26,27 @@ public class GameInstance {
         frame.setLayout(new FlowLayout());
 
 
-        //frame.setLayout(new BorderLayout());
+        frame.setLayout(new BorderLayout());
 
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
         eventManager keylistener = new eventManager(map, board);
-        JPanel score = new JPanel();
-        JLabel scoreText = new JLabel("SCORE");
-        score.add(scoreText);
+        JPanel scoreboard = new JPanel();
+        scoreboard.setLayout(new BorderLayout());
+        JLabel scoreText = board.getPlayerScoreLabel();
         Timer timer = new Timer();
+        timer.setHorizontalAlignment(JLabel.CENTER);
+        timer.setVerticalAlignment(JLabel.CENTER);
+        scoreboard.add(scoreText, BorderLayout.NORTH);
+        scoreboard.add(timer, BorderLayout.SOUTH);
+        scoreboard.setOpaque(false);
         frame.setSize(815,635);
         board.setBounds(0,0,600,600); 
         frame.addKeyListener(keylistener); 
-        //timer.setBounds(615,0,200,317);
-        //score.setBounds(615, 318, 200, 317);
         board.setPreferredSize(new Dimension(600,600));
-        timer.setPreferredSize(new Dimension(200, 600));
+        timer.setPreferredSize(new Dimension(200, 300));
         frame.add(board, BorderLayout.CENTER);
-        frame.add(timer, BorderLayout.EAST);
-        //frame.add(score, BorderLayout.SOUTH);
+        frame.add(scoreboard, BorderLayout.EAST);
         
         frame.setVisible(true);
     }
