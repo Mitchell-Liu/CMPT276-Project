@@ -22,7 +22,7 @@ public class StartMenu extends JFrame{
 		
 		ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/shark.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("Assets/shark.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

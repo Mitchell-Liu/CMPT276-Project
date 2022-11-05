@@ -8,12 +8,12 @@ public class Timer extends JLabel  implements Runnable{
     boolean running;
     boolean exit=false;
     Timer(){
-        super("0 s");
+        super("TIME ELAPSED:\n0 s");
        // this.event=event;
         running=true;
-        this.setForeground(Color.red);
+        this.setForeground(Color.white);
         this.setOpaque(false);
-        setFont(new Font("Serif", Font.PLAIN, 30));
+        setFont(new Font("Monospaced", Font.BOLD, 24));
         
         Thread thread = new Thread(this);
         thread.start();
@@ -31,7 +31,8 @@ public class Timer extends JLabel  implements Runnable{
             throw new IllegalStateException(e);
             }
             //System.out.println(time);
-            this.setText(Integer.toString(time)+ " s");
+            String text = "TIME ELAPSED:<br>"+Integer.toString(time)+" s";
+            this.setText("<html><p>"+text+"</p></html>");
             time++;
        }
         
