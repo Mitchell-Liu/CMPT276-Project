@@ -68,14 +68,14 @@ public class EndMenuWin extends JFrame{
                         }
                     });
 
-        Timer timer=new Timer();
+       // Timer timer=new Timer();
         
 
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
 
-        buttonsC.add(timer);
+       // buttonsC.add(timer);
         
 
 		getContentPane().add(buttonsC);
