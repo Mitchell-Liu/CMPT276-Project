@@ -13,7 +13,7 @@ public class GameInstance {
 
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
-        eventManager keylistener = new eventManager(map, board);
+        eventManager keylistener = new eventManager(map, board, this.frame);
         JPanel score = new JPanel();
         JLabel scoreText = new JLabel("SCORE");
         score.add(scoreText);

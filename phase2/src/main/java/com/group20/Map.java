@@ -1,5 +1,7 @@
 package com.group20;
 
+import javax.swing.JFrame;
+
 /*
  * Class: Map
  * Description: Stores all game entities 
@@ -182,7 +184,7 @@ public class Map {
             case "Shark":
                 gameLose = true;
                 gameOver = true;
-                new EndMenu();
+                
             default:           
 
         }

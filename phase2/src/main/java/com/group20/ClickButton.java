@@ -12,10 +12,10 @@ public class ClickButton extends JLabel implements MouseListener{
     ActionListener myAL;
     public ClickButton(String str){
         super(str);
-        this.setForeground(Color.yellow);
-        this.setOpaque(false);
+        this.setForeground(Color.blue);
+        this.setOpaque(true);
         this.addMouseListener(this);
-        setFont(new Font("Serif", Font.PLAIN, 30));
+        setFont(new Font("Serif", Font.PLAIN, 60));
     }
     public void addActionListener(ActionListener al){
         myAL = al;
@@ -43,6 +43,6 @@ public class ClickButton extends JLabel implements MouseListener{
 
     @Override
     public void mouseExited(MouseEvent e) {
-        this.setForeground(Color.yellow);
+        this.setForeground(Color.blue);
     }
 }

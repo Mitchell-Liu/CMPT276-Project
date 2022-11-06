@@ -8,13 +8,13 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-public class EndMenu extends JFrame{
+public class EndMenuWin extends JFrame{
 
 	
 	JLabel label;
 	
 	
-	EndMenu(){		
+	EndMenuWin(){		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
 		this.setLayout(null);

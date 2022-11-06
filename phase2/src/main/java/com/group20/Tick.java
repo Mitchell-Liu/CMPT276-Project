@@ -46,6 +46,13 @@ public class Tick implements Runnable{
               break;
               
             }
+      if(event.map.isGameLose()){
+        new EndMenuLose();
+        event.frame.dispose();
+      }
+      // else if(event.map.isGameWin()){
+      //   new 
+      // }
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
                 //Thread.sleep(2000);

@@ -12,9 +12,12 @@ public class eventManager implements KeyListener{
      Map map;
      Diver diver;
      JFrame frame;
-    //private eventManager event=new eventManager();
-    public eventManager(Map gameMap, Board playarea){
-       
+
+    
+    //private eventManager event=new eventManager();    
+    public eventManager(Map gameMap, Board playarea, JFrame frame){
+        
+        this.frame = frame;
         map = gameMap;
         board = playarea;
          up=0;
