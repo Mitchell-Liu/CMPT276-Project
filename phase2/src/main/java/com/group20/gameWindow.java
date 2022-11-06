@@ -29,7 +29,8 @@ public class gameWindow extends JFrame{
 
         
         setContentPane(new JLabel(backGround));
-        setLayout(new FlowLayout());
+        //setLayout(new FlowLayout());
+
         Timer timer=new Timer();
         JPanel timerPane =new JPanel(new BorderLayout());
         timerPane.add(timer);

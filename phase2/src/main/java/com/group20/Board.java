@@ -19,6 +19,7 @@ public class Board extends JPanel{
     JLabel[] labels;
     JLabel[][] board;
     ImageIcon[] icons;
+    JLabel playerScore;
     
     Board(Map gameMap){
 
@@ -26,14 +27,16 @@ public class Board extends JPanel{
 
         board = new JLabel[20][20];
 
-        File path = new File("C:/Users/Mitchell/Documents/GitHub/project/phase2/src/main/java/com/group20/Assets");
+        
+        File path = new File("./phase2/src/main/java/com/group20/Assets");
 
         File[] allFiles = path.listFiles();
 
         allImages = new BufferedImage[allFiles.length];
 
         this.setLayout(null);
-        this.setBackground(Color.BLUE);
+        //this.setBackground(Color.BLUE);
+        this.setOpaque (false);
 
         labels = new JLabel[allFiles.length];
         icons = new ImageIcon[allFiles.length];
@@ -64,11 +67,22 @@ public class Board extends JPanel{
             }
         }
 
+        playerScore = new JLabel("YOUR SCORE:\n"+map.getPlayerScore());
+        playerScore.setFont(new Font(Font.MONOSPACED, Font.BOLD, 24));
+        playerScore.setForeground(Color.white);
+        playerScore.setHorizontalAlignment(JLabel.CENTER);
+        playerScore.setVerticalAlignment(JLabel.CENTER);
+        playerScore.setPreferredSize(new Dimension(200, 300));
+
 
     }
 
     public Map getMap(){
         return map;
+    }
+
+    public JLabel getPlayerScoreLabel(){
+        return playerScore;
     }
 
     
@@ -104,5 +118,6 @@ public class Board extends JPanel{
                 }
             }
         }
+        playerScore.setText("YOUR SCORE:\n"+map.getPlayerScore());
     }
 }
