@@ -180,6 +180,7 @@ public class Map {
                 this.setDiverPosition(newPosition);
                 gameWin = true;
                 gameOver = true;
+                new EndMenuWin();
                 break; 
             case "Shark":
                 gameLose = true;

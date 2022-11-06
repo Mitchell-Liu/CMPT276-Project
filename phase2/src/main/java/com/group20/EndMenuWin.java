@@ -22,7 +22,7 @@ public class EndMenuWin extends JFrame{
 		
 		ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/textfx.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/win.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

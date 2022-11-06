@@ -63,7 +63,8 @@ public class EndMenuLose extends JFrame{
                         @Override
                         public void actionPerformed(ActionEvent e) {
             
-                            new gameWindow();
+                            DefaultGameFactory factory1 = new DefaultGameFactory();
+                            GameInstance test = new GameInstance(factory1);
                             dispose();
                         }
                     });
