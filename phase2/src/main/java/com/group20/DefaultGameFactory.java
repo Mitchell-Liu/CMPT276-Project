@@ -6,8 +6,8 @@ public class DefaultGameFactory extends GameFactory{
         Diver diver = new Diver(new Position(1, 9));
         map.setDiver(diver);
         Shark s1 = new Shark(new Position(3, 3));
-        Shark s2 = new Shark(new Position(1, 17));
-        map.setSharks(s1, s2);
+        //Shark s2 = new Shark(new Position(1, 17));
+        map.setSharks(s1);
         
         //Placing all walls in default map
         map.setBorderWalls();

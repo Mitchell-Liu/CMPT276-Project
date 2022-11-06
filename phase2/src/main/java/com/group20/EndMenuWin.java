@@ -72,7 +72,7 @@ public class EndMenuWin extends JFrame{
                         }
                     });
 
-        Timer timer=new Timer();
+       // Timer timer=new Timer();
         
 
 		buttonsC.add(startButton);
@@ -80,7 +80,7 @@ public class EndMenuWin extends JFrame{
         buttonsC.add(restartButton);
         buttonsC.add(score);
 
-        buttonsC.add(timer);
+       // buttonsC.add(timer);
         
 
 

@@ -11,8 +11,7 @@ public class Tick implements Runnable{
 
     public void run(){
         while(!event.map.isGameOver()){
-            
-          
+
             
             direction di=event.Direction();
             
@@ -64,8 +63,16 @@ public class Tick implements Runnable{
             event.right=0;
             event.left=0;
 
+            if(event.map.isGameLose()){
+              event.frame.dispose();
+              new EndMenuLose();
+            }
+            else if (event.map.isGameWin()){
+              event.frame.dispose();
+              new EndMenuWin();
+            }
             try {
-                TimeUnit.MILLISECONDS.sleep(200);
+                TimeUnit.MILLISECONDS.sleep(300);
                 //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);

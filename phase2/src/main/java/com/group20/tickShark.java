@@ -13,10 +13,11 @@ public class tickShark extends Thread{
         while(!event.map.isGameOver()){
             
 
-            
+          BFS shark=new BFS(event.map,event.map.shark1.getPosition());
            
 
-            BFS shark=new BFS(event.map,event.map.shark1.getPosition());
+            
+
               direction sharkDi=shark.Search();
             System.out.print("Ther return direction is:"+sharkDi.name());
               switch(sharkDi){
@@ -55,10 +56,15 @@ public class tickShark extends Thread{
               }
 
 
+              shark=null;
 
-
+              if(event.map.isGameLose()){
+                event.frame.dispose();
+                new EndMenuLose();
+              }
+              
             try {
-                TimeUnit.MILLISECONDS.sleep(1000);
+                TimeUnit.MILLISECONDS.sleep(500);
                 //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);

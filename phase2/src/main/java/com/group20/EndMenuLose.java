@@ -69,14 +69,14 @@ public class EndMenuLose extends JFrame{
                         }
                     });
 
-        Timer timer=new Timer();
+        //Timer timer=new Timer();
         
 
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
 
-        buttonsC.add(timer);
+        //buttonsC.add(timer);
         
 
 		getContentPane().add(buttonsC);
@@ -87,15 +87,7 @@ public class EndMenuLose extends JFrame{
 
 	}
 	
-	private static ImageIcon resize(ImageIcon image, int width, int height) {
-        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = (Graphics2D) bi.createGraphics();
-        g2d.addRenderingHints(
-                new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(image.getImage(), 0, 0, width, height, null);
-        g2d.dispose();
-        return new ImageIcon(bi);
-    }
+	
 	
 	
 }
