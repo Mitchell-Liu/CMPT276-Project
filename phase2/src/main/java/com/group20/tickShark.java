@@ -13,10 +13,11 @@ public class tickShark extends Thread{
         while(!event.map.isGameOver()){
             
 
-            
+          BFS shark=new BFS(event.map,event.map.shark1.getPosition());
            
 
-            BFS shark=new BFS(event.map,event.map.shark1.getPosition());
+            
+
               direction sharkDi=shark.Search();
             System.out.print("Ther return direction is:"+sharkDi.name());
               switch(sharkDi){
@@ -55,7 +56,7 @@ public class tickShark extends Thread{
               }
 
 
-
+              shark=null;
 
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);
