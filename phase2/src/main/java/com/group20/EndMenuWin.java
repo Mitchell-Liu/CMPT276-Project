@@ -18,19 +18,23 @@ public class EndMenuWin extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
 		this.setLayout(null);
-		
-		
-		ImageIcon logo = new ImageIcon();
-        try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/win.png")));
-        } catch (IOException e) {
+
+		ImageIcon backGround = new ImageIcon();
+        try{
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/WinBac.png")));
+        }
+        catch(IOException e){
             e.printStackTrace();
         }
-		// logo=resize(logo,100,200);
-		setLayout(new BorderLayout());
-        getContentPane().add(new JLabel(logo),BorderLayout.NORTH);
-
+        Image image = backGround.getImage();
+        Image scaled = image.getScaledInstance(1000,800 , java.awt.Image.SCALE_SMOOTH);
+        backGround = new ImageIcon(scaled);
+        this.setContentPane((new JLabel(backGround)));
+    
+        
 		JPanel buttonsC = new JPanel();
+        
+        buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));

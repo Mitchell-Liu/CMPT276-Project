@@ -186,12 +186,12 @@ public class Map {
             case "Shark":
                 gameWin = true;
                 gameOver = true;
-                new EndMenuWin(playerScore);
+                
                 break;
             case "Diver":
                 gameLose = true;
                 gameOver = true;
-                //new EndMenuLose();
+               
                 break;
             default:           
 
