@@ -12,7 +12,7 @@ public class Map {
     
     private Entity[][] entities;
     Diver diver;
-    Shark shark1, shark2;
+    Shark shark1;
     Exit exit;
     int coinsRemaining, playerScore;
     Boolean gameOver, gameWin, gameLose;
@@ -83,29 +83,29 @@ public class Map {
         entities[newWall.getPosition().getX()][newWall.getPosition().getY()] = newWall;
     }
 
-    public void setSharks(Shark shark1, Shark shark2){
+    public void setSharks(Shark shark1){
         this.shark1 = shark1;
-        this.shark2 = shark2;
+        //this.shark2 = shark2;
         this.setEntityAt(shark1, shark1.getPosition());
-        this.setEntityAt(shark2, shark2.getPosition());
+        //this.setEntityAt(shark2, shark2.getPosition());
     }
     public Shark getShark1(){
         return shark1;
     }
-    public Shark getShark2(){
-        return shark2;
-    }
+    //public Shark getShark2(){
+       // return shark2;
+   // }
     public void setSharkPosition(Position position1, Position position2){
         shark1.setPosition(position1);
-        shark2.setPosition(position2);
+        //shark2.setPosition(position2);
     }
 
     public Position getShark1Position(){
         return shark1.getPosition();
     }
-    public Position getShark2Position(){
-        return shark2.getPosition();
-    }
+    //public Position getShark2Position(){
+       // return shark2.getPosition();
+    //}
     
     public void setDiver(Diver player){
         this.diver = player;
@@ -180,17 +180,18 @@ public class Map {
                 this.setDiverPosition(newPosition);
                 gameWin = true;
                 gameOver = true;
-                new EndMenuWin();
+                //new EndMenuWin();
                 break; 
             case "Shark":
                 gameLose = true;
                 gameOver = true;
-                new EndMenuLose();
+                //new EndMenuLose();
                 break;
             case "Diver":
-                //gameLose = true;
-                //gameOver = true;
-                //new EndMenu();
+                gameLose = true;
+                gameOver = true;
+                //new EndMenuLose();
+                break;
             default:           
 
             

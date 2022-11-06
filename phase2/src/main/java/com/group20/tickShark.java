@@ -58,8 +58,13 @@ public class tickShark extends Thread{
 
               shark=null;
 
+              if(event.map.isGameLose()){
+                event.frame.dispose();
+                new EndMenuLose();
+              }
+              
             try {
-                TimeUnit.MILLISECONDS.sleep(1000);
+                TimeUnit.MILLISECONDS.sleep(500);
                 //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);
