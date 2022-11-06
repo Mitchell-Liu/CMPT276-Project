@@ -93,21 +93,6 @@ public class StartMenu extends JFrame{
 
 	}
     
-	public JButton RollOverButtonTest(JButton b1) {
-		button = b1;
-	   button.addMouseListener(new MouseAdapter() {
-		  Color color = button.getForeground();
-		  public void mouseEntered(MouseEvent me) {
-			 color = button.getForeground();
-			 button.setForeground(Color.green); // change the color to green when mouse over a button
-		  }
-		  public void mouseExited(MouseEvent me) {
-			 button.setForeground(color);
-		  }
-	   });
-       return button;
-	   
-	}
     
 	// private static ImageIcon resize(ImageIcon image, int width, int height) {
     //     BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);

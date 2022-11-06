@@ -16,7 +16,7 @@ public class Map {
     Exit exit;
     int coinsRemaining, playerScore;
     Boolean gameOver, gameWin, gameLose;
-
+    
     Map(){
         entities = new Entity[20][20];
         playerScore = 0;
@@ -180,12 +180,13 @@ public class Map {
                 this.setDiverPosition(newPosition);
                 gameWin = true;
                 gameOver = true;
-                new EndMenuWin();
+                
+                
                 break; 
             case "Shark":
-                gameLose = true;
+                gameWin = true;
                 gameOver = true;
-                new EndMenuLose();
+                new EndMenuWin(playerScore);
                 break;
             case "Diver":
                 //gameLose = true;

@@ -14,7 +14,7 @@ public class EndMenuWin extends JFrame{
 	JLabel label;
 	
 	
-	EndMenuWin(){		
+	EndMenuWin(int plScore){		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
 		this.setLayout(null);
@@ -31,17 +31,20 @@ public class EndMenuWin extends JFrame{
         getContentPane().add(new JLabel(logo),BorderLayout.NORTH);
 
 		JPanel buttonsC = new JPanel();
-        buttonsC.setBackground(Color.black);
+        
         
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
         ClickButton exitButton = new ClickButton("Exit Game");
-        
+        JLabel score = new JLabel("SCORE: " + plScore);
+        score.setFont((new Font("Serif", Font.PLAIN, 50)));
+        score.setForeground(Color.white);
 
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         restartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        score.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 		startButton.addActionListener(new ActionListener() {
             @Override
@@ -63,7 +66,8 @@ public class EndMenuWin extends JFrame{
                         @Override
                         public void actionPerformed(ActionEvent e) {
             
-                            new gameWindow();
+                            DefaultGameFactory factory1 = new DefaultGameFactory();
+                            GameInstance test = new GameInstance(factory1);
                             dispose();
                         }
                     });
@@ -74,27 +78,26 @@ public class EndMenuWin extends JFrame{
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
+        buttonsC.add(score);
 
         buttonsC.add(timer);
         
 
-		getContentPane().add(buttonsC);
-		setVisible(true);
+
         
+        Dimension size = buttonsC.getPreferredSize();
+        buttonsC.setBounds(350,500,size.width, size.height);
+        // buttonsC.setLocation(100,100);
+        // buttonsC.add(timer);
+        setUndecorated(true);
+		getContentPane().add((buttonsC));
+        this.getContentPane().setLayout(null);
         
-        
+        // buttonsC.setOpaque(true);
+        setVisible(true);
+
 
 	}
-	
-	private static ImageIcon resize(ImageIcon image, int width, int height) {
-        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = (Graphics2D) bi.createGraphics();
-        g2d.addRenderingHints(
-                new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(image.getImage(), 0, 0, width, height, null);
-        g2d.dispose();
-        return new ImageIcon(bi);
-    }
 	
 	
 }

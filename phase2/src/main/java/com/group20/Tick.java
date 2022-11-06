@@ -56,7 +56,8 @@ public class Tick implements Runnable{
         event.frame.dispose();
       }
       // else if(event.map.isGameWin()){
-      //   new 
+      //   new EndMenuWin();
+      //   event.frame.dispose();
       // }
             event.up=0;
             event.down=0;
