@@ -61,7 +61,7 @@ public class Tick implements Runnable{
             }
             else if (event.map.isGameWin()){
               event.frame.dispose();
-              new EndMenuWin(event.map.getPlayerScore(),event.map.timePassed.time);
+              new EndMenuWin(event.map.getPlayerScore());
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(300);

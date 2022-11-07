@@ -14,7 +14,7 @@ public class EndMenuWin extends JFrame{
 	JLabel label;
 	
 	
-	EndMenuWin(int plScore, int pltime){		
+	EndMenuWin(int plScore){		
         // Setup the Window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
@@ -44,7 +44,7 @@ public class EndMenuWin extends JFrame{
         JLabel score = new JLabel("SCORE: " + plScore);
         score.setFont((new Font("Serif", Font.PLAIN, 50)));
         score.setForeground(Color.black);
-        JLabel time = new JLabel("TIME: " + pltime);
+        JLabel time = new JLabel("TIME: " + Timer.time);
         time.setFont((new Font("Serif", Font.PLAIN, 50)));
         time.setForeground(Color.black);
 

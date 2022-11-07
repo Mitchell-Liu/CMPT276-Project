@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class Timer extends JLabel  implements Runnable{
-    int time=0;
+    static int time=0;
     boolean running;
     boolean exit=false;
     Timer(){
