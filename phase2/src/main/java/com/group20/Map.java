@@ -127,11 +127,13 @@ public class Map {
         this.setEntityAt(exit, exit.getPosition());
     }
 
+    // Checks which entity is being collided with and acts appropiately 
     public void manageCollisionAt(Position newPosition){
         String name = getEntityNameAt(newPosition);
         Position currentPosition = this.getDiverPosition();
         int value;
         switch(name){
+            // Collects the coin, increases player score and checks if all coins are collected
             case "Coin":
                 value = this.getEntityAt(newPosition).getValue();
                 this.removeEntityAt(newPosition);
@@ -157,6 +159,7 @@ public class Map {
                 this.setDiverPosition(newPosition);
                 System.out.println("Player Score: "+playerScore);
                 break;
+            // Collects the seaweed and removes points from the player
             case "Seaweed":
                 value = this.getEntityAt(newPosition).getValue();
                 this.removeEntityAt(newPosition);
@@ -165,7 +168,12 @@ public class Map {
                 this.setEntityAt(diver, newPosition);
                 this.setDiverPosition(newPosition);
                 System.out.println("Player Score: "+playerScore);
+                if(playerScore<0){
+                    gameLose = true;
+                gameOver = true;
+                }
                 break;
+            // The player wins the game
             case "Exit":
                 this.removeEntityAt(newPosition);
                 this.removeEntityAt(currentPosition);
@@ -173,22 +181,17 @@ public class Map {
                 this.setDiverPosition(newPosition);
                 gameWin = true;
                 gameOver = true;
-                
-                
                 break; 
+            // The player loses 
             case "Shark":
                 gameLose = true;
                 gameOver = true;
-                
                 break;
             case "Diver":
                 gameLose = true;
                 gameOver = true;
-                
                 break;
             default:           
-
-            
         }
     }
     

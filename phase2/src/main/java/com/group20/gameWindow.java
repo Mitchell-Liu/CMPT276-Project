@@ -19,10 +19,12 @@ public class gameWindow extends JFrame{
         setVisible(true);
         getContentPane().setBackground(Color.black);
 
+        // Creates background image
         ImageIcon backGround = new ImageIcon();
         try {
             backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/backGround.jpg")));
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
         
@@ -32,9 +34,6 @@ public class gameWindow extends JFrame{
         JPanel timerPane =new JPanel(new BorderLayout());
         timerPane.add(timer);
         timerPane.setBackground(Color.black);
-        add(timerPane, BorderLayout.EAST);
-
-       
-    }
-    
+        add(timerPane, BorderLayout.EAST);   
+    }   
 }
