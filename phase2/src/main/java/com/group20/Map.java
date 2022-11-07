@@ -170,7 +170,7 @@ public class Map {
                 System.out.println("Player Score: "+playerScore);
                 if(playerScore<0){
                     gameLose = true;
-                gameOver = true;
+                    gameOver = true;
                 }
                 break;
             // The player wins the game
