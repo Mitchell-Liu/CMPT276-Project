@@ -72,7 +72,7 @@ public class Tick implements Runnable{
               new EndMenuWin(event.map.getPlayerScore());
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(300);
+                TimeUnit.MILLISECONDS.sleep(400);
                 //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);
