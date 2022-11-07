@@ -35,68 +35,57 @@ public class EndMenuLose extends JFrame{
     
         
 		JPanel buttonsC = new JPanel();
-        
+        // Stacks the Buttons vertically
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
+
+        // Create elements to be added to the JFrame
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
         ClickButton exitButton = new ClickButton("Exit Game");
         
-
+        // Centers the Buttons
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         restartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // Opens the appropriate windows when buttons are clicked
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 				new StartMenu();
                 dispose();
-				//System.exit(0);
             }
         });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-				
                 dispose();
 				System.exit(0);
             }
         });
         restartButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-            
-                            DefaultGameFactory factory1 = new DefaultGameFactory();
-                            GameInstance test = new GameInstance(factory1);
-                            dispose();
-                        }
-                    });
-
-        //Timer timer=new Timer();
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultGameFactory factory1 = new DefaultGameFactory();
+                GameInstance test = new GameInstance(factory1);
+                dispose();
+            }
+        });
         
-
+        // Adds the buttons the the JFrame
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
 
-        //buttonsC.add(timer);
+        // Places the Frame in a specific position 
         Dimension size = buttonsC.getPreferredSize();
         buttonsC.setBounds(350,500,size.width, size.height);
-        // buttonsC.setLocation(100,100);
-        // buttonsC.add(timer);
+
         setUndecorated(true);
 		getContentPane().add((buttonsC));
         this.getContentPane().setLayout(null);
 
-		getContentPane().add(buttonsC);
 		setVisible(true);
-        
-        
-        
-
 	}
-	
-	
-	
-	
+
 }
