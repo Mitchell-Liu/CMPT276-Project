@@ -17,14 +17,14 @@ public class BFS {
     BFS(Map map,Position start){
         this.map=map;
         this.start=start;
-        //System.out.println("shark location is: "+start.getX()+" "+start.getY());
+        
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
                 Position currPosition = new Position(i, j);
                 switch (map.getEntityNameAt(currPosition)){
                     case "Diver":
                         maze[i][j]=3;
-                        //System.out.println("diver location is: "+i+" "+j);
+                        
                         break;
                     case "Shark":
                         maze[i][j]=4;
@@ -58,14 +58,7 @@ public class BFS {
     public direction Search(){
         Position currentPosition;
         while(true){
-            /* 
-            try {
-                TimeUnit.MILLISECONDS.sleep(1000);
-                //Thread.sleep(2000);
-            } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-            }
-            */
+            
             if(directionQueue.size()==0){
                 if(maze[start.getX()][start.getY()+1]==3){
                     return direction.down;
@@ -81,55 +74,36 @@ public class BFS {
                  }
                 if(maze[start.getX()][start.getY()+1]==0){
                     direction[] inputPath={direction.down};
-                    //System.out.println("down for "+inputPath[0].name());
+                    
                     directionQueue.add(inputPath);
                     maze[start.getX()][start.getY()+1]=2;
                 }
                 if(maze[start.getX()][start.getY()-1]==0){
                     direction[] inputPath={direction.up};
-                    //System.out.println("up for "+inputPath[0].name());
+                    
                     directionQueue.add(inputPath);
                     maze[start.getX()][start.getY()-1]=2;
                 }
                 if(maze[start.getX()+1][start.getY()]==0){
                     direction[] inputPath={direction.right};
-                   // System.out.println("right for "+inputPath[0].name());
+                   
                     directionQueue.add(inputPath);
                     maze[start.getX()+1][start.getY()]=2;
                 }
                 if(maze[start.getX()-1][start.getY()]==0){
                     direction[] inputPath={direction.left};
-                    //System.out.println("left for "+inputPath[0].name());
+                    
                     directionQueue.add(inputPath);
                     maze[start.getX()][start.getY()+1]=2;
                 }
-                //System.out.println("printing directionQueue:");
-                /* 
-                for(int i=0;i<directionQueue.size();i++){
-                    direction[] inputPath=directionQueue.remove();
-                    for(int j=0;j<inputPath.length;j++){
-                        System.out.print(inputPath[j].name()+"");
-                    }
-                    System.out.println();
-                }*/
-                //for(direction[] elem:directionQueue){
-                  //  for(int j=0;j<elem.length;j++){
-                  //      System.out.print(elem[j].name()+"");
-                  //  }
-                  //  System.out.println();
-                //}
+               
                 
             }
             else{
 
                  currentPosition=new Position(start.getX(),start.getY());
                 direction[] topath=directionQueue.remove();
-                //System.out.println("the startPosition is x:"+currentPosition.getX()+" y:"+currentPosition.getY());
-                //System.out.print("the remove path is ");
-                //for(int j=0;j<topath.length;j++){
-                   // System.out.print(topath[j].name()+" || ");
-                //}
-                //System.out.println();
+                
                 int dx=0;
                 int dy=0;
                 for (int i=0;i<topath.length;i++){
@@ -152,48 +126,30 @@ public class BFS {
                 }
                 currentPosition.setX(currentPosition.getX()+dx);
                 currentPosition.setY(currentPosition.getY()+dy);
-                //System.out.println("the curentPosition is x:"+currentPosition.getX()+" y:"+currentPosition.getY());
-                //System.out.println("the curentPosition is x:"+(currentPosition.getX()+dx)+" y:"+(currentPosition.getY()+dy));
-                //System.out.println();
+                
                 if(maze[currentPosition.getX()][currentPosition.getY()+1]==0){
                     direction[] inputPath=addOnPath(topath,direction.down);
 
-                    //System.out.print("Adding direction array: ");
-                  //  for(int j=0;j<inputPath.length;j++){
-                        //System.out.print(inputPath[j].name()+"||");
-                    //}
-                    //System.out.println();
+                    
 
                     directionQueue.add(inputPath);
                 }
                 if(maze[currentPosition.getX()][currentPosition.getY()-1]==0){
                     
                     direction[] inputPath=addOnPath(topath,direction.up);
-                    //System.out.print("Adding direction array: ");
-                    //for(int j=0;j<inputPath.length;j++){
-                        //System.out.print(inputPath[j].name()+"||");
-                    //}
-                    //System.out.println();
+                    
                     directionQueue.add(inputPath);
                 }
                 if(maze[currentPosition.getX()+1][currentPosition.getY()]==0){
                     
                     direction[] inputPath=addOnPath(topath,direction.right);
-                    //System.out.print("Adding direction array: ");
-                   // for(int j=0;j<inputPath.length;j++){
-                       // System.out.print(inputPath[j].name()+"||");
-                    //}
-                    //System.out.println();
+                   
                     directionQueue.add(inputPath);
                 }
                 if(maze[currentPosition.getX()-1][currentPosition.getY()]==0){
                     
                     direction[] inputPath=addOnPath(topath,direction.left);
-                    //System.out.print("Adding direction array: ");
-                    //for(int j=0;j<inputPath.length;j++){
-                      //  System.out.print(inputPath[j].name()+"||");
-                   // }
-                   // System.out.println();
+                    
                     directionQueue.add(inputPath);
                 }
 
