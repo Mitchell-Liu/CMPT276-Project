@@ -3,7 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-// The timer class to keep track of how much time the player spends playing the game
+/**
+ * The timer class to keep track of how much time the player spends playing the game
+ */
 public class Timer extends JLabel  implements Runnable{
     static int time=0;
     boolean running;
