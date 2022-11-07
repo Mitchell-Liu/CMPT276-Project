@@ -60,7 +60,7 @@ public class tickShark extends Thread{
 
               if(event.map.isGameLose()){
                 event.frame.dispose();
-                new EndMenuLose();
+                new EndMenuLose(event.map.getPlayerScore());
               }
               
             try {

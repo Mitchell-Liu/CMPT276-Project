@@ -14,7 +14,7 @@ public class EndMenuLose extends JFrame{
 	JLabel label;
 	
 	
-	EndMenuLose(){		
+	EndMenuLose(int plScore){		
         // Setup the Window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
@@ -42,11 +42,19 @@ public class EndMenuLose extends JFrame{
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
         ClickButton exitButton = new ClickButton("Exit Game");
-        
+        JLabel score = new JLabel("SCORE: " + plScore);
+        score.setFont((new Font("Serif", Font.PLAIN, 50)));
+        score.setForeground(Color.black);
+        JLabel time = new JLabel("TIME: " + Timer.time);
+        time.setFont((new Font("Serif", Font.PLAIN, 50)));
+        time.setForeground(Color.black);
+
         // Centers the Buttons
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         restartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        score.setAlignmentX(Component.CENTER_ALIGNMENT);
+        time.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Opens the appropriate windows when buttons are clicked
 		startButton.addActionListener(new ActionListener() {
@@ -73,13 +81,15 @@ public class EndMenuLose extends JFrame{
         });
         
         // Adds the buttons the the JFrame
+        buttonsC.add(score);
+        buttonsC.add(time);
 		buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
 
         // Places the Frame in a specific position 
         Dimension size = buttonsC.getPreferredSize();
-        buttonsC.setBounds(350,500,size.width, size.height);
+        buttonsC.setBounds(350,400,size.width, size.height);
 
         setUndecorated(true);
 		getContentPane().add((buttonsC));

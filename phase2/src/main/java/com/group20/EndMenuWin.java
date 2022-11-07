@@ -90,7 +90,7 @@ public class EndMenuWin extends JFrame{
         
         // Places the Frame in a specific position 
         Dimension size = buttonsC.getPreferredSize();
-        buttonsC.setBounds(350,300,size.width, size.height);
+        buttonsC.setBounds(350,400,size.width, size.height);
 
         setUndecorated(true);
 		getContentPane().add((buttonsC));
