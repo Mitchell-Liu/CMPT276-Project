@@ -17,7 +17,7 @@ public class BFS {
     BFS(Map map,Position start){
         this.map=map;
         this.start=start;
-        
+        // convert the map to an 2d array containing number
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
                 Position currPosition = new Position(i, j);
@@ -55,8 +55,13 @@ public class BFS {
     }
 
 
+    /**
+     * This method will find a path using BFS
+     * @return return the first direction enum 
+     */
     public direction Search(){
         Position currentPosition;
+        //using BFS to search
         while(true){
             
             if(directionQueue.size()==0){
@@ -173,7 +178,7 @@ public class BFS {
     }
      
 
-    
+    //expand a old array
     private direction[] addOnPath(direction[] previous,direction addOn){
         direction[] current=new direction[previous.length+1];
         for(int i=0;i <previous.length;i++){
