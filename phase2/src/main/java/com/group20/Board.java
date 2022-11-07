@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-
+/**
+ * The board class will draw the map array on the Jpanel
+ */
 public class Board extends JPanel{
 
 
@@ -21,6 +23,7 @@ public class Board extends JPanel{
     ImageIcon[] icons;
     JLabel playerScore;
     
+    //constructor for setting up the map visually
     Board(Map gameMap){
 
         map = gameMap;
@@ -85,7 +88,7 @@ public class Board extends JPanel{
         return playerScore;
     }
 
-    
+    //redrawn the map, base on the map array
     public void updateBoard(){
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){

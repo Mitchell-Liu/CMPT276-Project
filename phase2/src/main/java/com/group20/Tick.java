@@ -1,6 +1,9 @@
 package com.group20;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * tick class will call eventManager function every tick period
+ */
 public class Tick implements Runnable{
     
     Tick(eventManager event){

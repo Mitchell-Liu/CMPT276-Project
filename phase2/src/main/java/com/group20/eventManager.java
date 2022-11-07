@@ -2,6 +2,10 @@ package com.group20;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+
+/**
+ * event manager: it will listen to the keyboard input, and manage the tick of the game
+ */
 public class eventManager implements KeyListener{
 
      int up,down,right,left;

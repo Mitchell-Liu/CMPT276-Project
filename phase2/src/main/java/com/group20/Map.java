@@ -127,6 +127,7 @@ public class Map {
         this.setEntityAt(exit, exit.getPosition());
     }
 
+    // collision detection for the entity
     public void manageCollisionAt(Position newPosition){
         String name = getEntityNameAt(newPosition);
         Position currentPosition = this.getDiverPosition();
@@ -388,6 +389,7 @@ public class Map {
         entities[pos.getX()][pos.getY()] = null;
     }
 
+    
     public void setBorderWalls(){
         for(int i = 0; i<20; i++){
             Position pos = new Position(i, 0);
