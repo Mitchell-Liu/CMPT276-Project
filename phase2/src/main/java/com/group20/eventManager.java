@@ -15,10 +15,10 @@ public class eventManager implements KeyListener{
      Diver diver;
      JFrame frame;
      tickShark ts=new tickShark(this);
-
+    Timer timer;
     //private eventManager event=new eventManager();    
-    public eventManager(Map gameMap, Board playarea, JFrame frame){
-        
+    public eventManager(Map gameMap, Board playarea, JFrame frame,Timer timer){
+        this.timer=timer;
         this.frame = frame;
         map = gameMap;
         board = playarea;

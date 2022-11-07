@@ -34,11 +34,12 @@ public class GameInstance {
         // Add elementes to the Frame
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
-        eventManager keylistener = new eventManager(map, board, this.frame);
+        Timer timer = new Timer();
+        eventManager keylistener = new eventManager(map, board, this.frame,timer);
         JPanel scoreboard = new JPanel();
         scoreboard.setLayout(new BorderLayout());
         JLabel scoreText = board.getPlayerScoreLabel();
-        Timer timer = new Timer();
+        
         timer.setHorizontalAlignment(JLabel.CENTER);
         timer.setVerticalAlignment(JLabel.CENTER);
         scoreboard.add(scoreText, BorderLayout.NORTH);

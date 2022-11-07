@@ -53,9 +53,12 @@ public class Tick implements Runnable{
             // Checks if the game has ended and if the player has won or lost
             if(event.map.isGameLose()){
               event.frame.dispose();
+              event.timer.exit();
               new EndMenuLose(event.map.getPlayerScore());
+
             }
             else if (event.map.isGameWin()){
+              event.timer.exit();
               event.frame.dispose();
               new EndMenuWin(event.map.getPlayerScore());
             }
