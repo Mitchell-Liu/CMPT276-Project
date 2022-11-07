@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * The timer class to keep track of how much time the player spends playing the game
  */
+
 public class Timer extends JLabel  implements Runnable{
     static int time=0;
     boolean running;
@@ -15,6 +16,7 @@ public class Timer extends JLabel  implements Runnable{
     Timer(){
         super("TIME ELAPSED:\n0 s");
         running=true;
+        time=0;
         this.setForeground(Color.white);
         this.setOpaque(false);
         setFont(new Font("Monospaced", Font.BOLD, 24));
