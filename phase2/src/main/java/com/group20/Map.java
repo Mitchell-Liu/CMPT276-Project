@@ -15,11 +15,14 @@ public class Map {
     Shark shark1;
     Exit exit;
     int coinsRemaining, playerScore;
+    Timer timePassed = new Timer();
     Boolean gameOver, gameWin, gameLose;
     
     Map(){
         entities = new Entity[20][20];
         playerScore = 0;
+        // timePassed.run();
+        System.out.println("Time:" + timePassed.time);
         gameWin = false;
         gameLose = false;
         gameOver = false;
@@ -282,12 +285,6 @@ public class Map {
             return false;
         }
     }
-
-
-
-
-
-
 
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();

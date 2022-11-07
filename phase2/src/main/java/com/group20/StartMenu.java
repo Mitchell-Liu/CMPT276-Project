@@ -26,7 +26,7 @@ public class StartMenu extends JFrame{
 
 		ImageIcon backGround = new ImageIcon();
         try{
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/StartMenuBac.png")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/StartBac.png")));
         }
         catch(IOException e){
             e.printStackTrace();

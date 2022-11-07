@@ -60,7 +60,7 @@ public class DefaultGameFactory extends GameFactory{
         map.placeCoin(new Position(7, 16));
         map.placeCoin(new Position(3, 4));
         map.placeCoin(new Position(18, 18));
-        map.setCoinsRemaining(5);
+        map.setCoinsRemaining(1);
 
         map.placeSeaweed(new Position(7, 4));
         map.placeSeaweed(new Position(17, 7));

@@ -50,14 +50,6 @@ public class Tick implements Runnable{
 
               
             }
-      if(event.map.isGameLose()){
-        new EndMenuLose();
-        event.frame.dispose();
-      }
-      // else if(event.map.isGameWin()){
-      //   new EndMenuWin();
-      //   event.frame.dispose();
-      // }
             event.up=0;
             event.down=0;
             event.right=0;
@@ -69,7 +61,7 @@ public class Tick implements Runnable{
             }
             else if (event.map.isGameWin()){
               event.frame.dispose();
-              new EndMenuWin(event.map.getPlayerScore());
+              new EndMenuWin(event.map.getPlayerScore(),event.map.timePassed.time);
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(400);
