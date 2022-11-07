@@ -3,11 +3,11 @@ package com.group20;
 public class DefaultGameFactory extends GameFactory{
     public Map makeMap(){
 
+        // Create and place the moving entities on the map
         Map map = new Map();
         Diver diver = new Diver(new Position(1, 9));
         map.setDiver(diver);
         Shark s1 = new Shark(new Position(3, 3));
-        
         map.setSharks(s1);
         
         //Placing all walls in default map
@@ -54,6 +54,7 @@ public class DefaultGameFactory extends GameFactory{
         map.placeWall(new Position(15,14));
         map.placeWall(new Position(16,14));
 
+        // Placing the collectables
         map.placeCoin(new Position(9,9));
         map.placeCoin(new Position(18, 1));
         map.placeCoin(new Position(7, 16));
@@ -74,6 +75,7 @@ public class DefaultGameFactory extends GameFactory{
         map.placeTreasureChest(new Position(15, 3));
         map.placeTreasureChest(new Position(5, 13));
 
+        // Placing the exit
         Exit gameExit = new Exit(new Position(19, 14));
         map.setExit(gameExit);
         
@@ -82,7 +84,7 @@ public class DefaultGameFactory extends GameFactory{
     }
 
 
-
+    // Create and update the board
     public Board makeBoard(Map map){
         Board board = new Board(map);
         board.updateBoard();

@@ -15,15 +15,12 @@ public class EndMenuLose extends JFrame{
 	
 	
 	EndMenuLose(){		
+        // Setup the Window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
 		this.setLayout(null);
 		
-		
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1000,800);
-		this.setLayout(null);
-
+        // Creates and fits a background for the window
 		ImageIcon backGround = new ImageIcon();
         try{
             backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/LoseBac.png")));
@@ -39,7 +36,6 @@ public class EndMenuLose extends JFrame{
         
 		JPanel buttonsC = new JPanel();
         
-        buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");

@@ -184,7 +184,7 @@ public class Map {
                 
                 break; 
             case "Shark":
-                gameWin = true;
+                gameLose = true;
                 gameOver = true;
                 
                 break;
