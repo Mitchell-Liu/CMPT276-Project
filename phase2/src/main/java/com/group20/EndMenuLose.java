@@ -20,19 +20,26 @@ public class EndMenuLose extends JFrame{
 		this.setLayout(null);
 		
 		
-		ImageIcon logo = new ImageIcon();
-        try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/lose.png")));
-        } catch (IOException e) {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(1000,800);
+		this.setLayout(null);
+
+		ImageIcon backGround = new ImageIcon();
+        try{
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/LoseBac.png")));
+        }
+        catch(IOException e){
             e.printStackTrace();
         }
-		// logo=resize(logo,100,200);
-		setLayout(new BorderLayout());
-        getContentPane().add(new JLabel(logo),BorderLayout.NORTH);
-
-		JPanel buttonsC = new JPanel();
-        buttonsC.setBackground(Color.black);
+        Image image = backGround.getImage();
+        Image scaled = image.getScaledInstance(1000,800 , java.awt.Image.SCALE_SMOOTH);
+        backGround = new ImageIcon(scaled);
+        this.setContentPane((new JLabel(backGround)));
+    
         
+		JPanel buttonsC = new JPanel();
+        
+        buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
@@ -77,7 +84,13 @@ public class EndMenuLose extends JFrame{
         buttonsC.add(restartButton);
 
         //buttonsC.add(timer);
-        
+        Dimension size = buttonsC.getPreferredSize();
+        buttonsC.setBounds(350,500,size.width, size.height);
+        // buttonsC.setLocation(100,100);
+        // buttonsC.add(timer);
+        setUndecorated(true);
+		getContentPane().add((buttonsC));
+        this.getContentPane().setLayout(null);
 
 		getContentPane().add(buttonsC);
 		setVisible(true);

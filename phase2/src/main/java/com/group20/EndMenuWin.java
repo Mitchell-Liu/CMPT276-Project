@@ -43,7 +43,7 @@ public class EndMenuWin extends JFrame{
         ClickButton exitButton = new ClickButton("Exit Game");
         JLabel score = new JLabel("SCORE: " + plScore);
         score.setFont((new Font("Serif", Font.PLAIN, 50)));
-        score.setForeground(Color.white);
+        score.setForeground(Color.black);
 
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -79,10 +79,11 @@ public class EndMenuWin extends JFrame{
        // Timer timer=new Timer();
         
 
-		buttonsC.add(startButton);
+       buttonsC.add(score);
+       buttonsC.add(startButton);
         buttonsC.add(exitButton);
         buttonsC.add(restartButton);
-        buttonsC.add(score);
+        
 
        // buttonsC.add(timer);
         
