@@ -3,8 +3,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 public class eventManager implements KeyListener{
-    
-	
 
      int up,down,right,left;
      JTextArea ta;
@@ -14,26 +12,23 @@ public class eventManager implements KeyListener{
      JFrame frame;
      tickShark ts=new tickShark(this);
 
-    
     //private eventManager event=new eventManager();    
     public eventManager(Map gameMap, Board playarea, JFrame frame){
         
         this.frame = frame;
         map = gameMap;
         board = playarea;
-         up=0;
-         down=0;
-         right=0;
-         left=0;
+        up=0;
+        down=0;
+        right=0;
+        left=0;
         ts.start();
-
     }
 
-    
     @Override
     public void keyTyped(KeyEvent e){
-        
     }
+
 
     @Override
     public void keyPressed(KeyEvent e){
@@ -47,46 +42,33 @@ public class eventManager implements KeyListener{
             case 38: 
             
                 up=1;
-                //map.moveDiverUp();
-                //board.updateBoard();
                 break;
             case 39: 
             
                 right=1;
-               // map.moveDiverRight();
-                //board.updateBoard();
                 break;
             case 40:
            
                 down=1;
-                //map.moveDiverDown();
-                //board.updateBoard();
                 break;
         }
     }
 
+    
     @Override
     public void keyReleased(KeyEvent e){
         switch(e.getKeyCode()) {
             case 37: 
            
-                //left=0;
-                //System.out.print("left");
                 break;
             case 38: 
             
-                //up=0;
-                //System.out.print("up");
                 break;
             case 39: 
             
-                //right=0;
-                //System.out.print("right");
                 break;
             case 40:
            
-                //down=0;
-                //System.out.print("down");
                 break;
         }
     }

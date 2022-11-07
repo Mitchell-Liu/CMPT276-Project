@@ -200,9 +200,6 @@ public class Map {
             return false;
         }
     }
-    
-
-
 
     public boolean moveSharkUp(){
         Position currentPosition = shark1.getPosition();
@@ -357,7 +354,6 @@ public class Map {
             return false;
         }
     }
-
 
     //Returns the entity at given position, returns null if position vacant
     public Entity getEntityAt(Position position){

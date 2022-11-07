@@ -19,11 +19,13 @@ public class StartMenu extends JFrame{
 	JLabel label;
 	private JButton button;
 	
-	StartMenu(){		
+	StartMenu(){	
+        // Setup the Window	
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
 		this.setLayout(null);
 
+        // Creates and fits a background for the window
 		ImageIcon backGround = new ImageIcon();
         try{
             backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/StartBac.png")));
@@ -38,19 +40,17 @@ public class StartMenu extends JFrame{
     
         
 		JPanel buttonsC = new JPanel();
-        
+        // Stacks the Buttons vertically
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
-        
-        
-        
-        
 
+        // Create elements to be added to the JFrame
         ClickButton startButton = new ClickButton("Start Game");
         ClickButton exitButton = new ClickButton("Exit Game");
 
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         
+        // Opens the appropriate windows when buttons are clicked
 		startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,40 +69,18 @@ public class StartMenu extends JFrame{
             }
         });
         
-
-        // Timer timer=new Timer();
-        // startButton.setBounds(10,10,10,10);
+         // Adds the buttons the the JFrame
 		buttonsC.add((startButton));
         buttonsC.add((exitButton));
-        // buttonsC.setOpaque(false);
-        // buttonsC.setLayout(null);
-        // buttonsC.setAlignmentX(B);
+
+        // Places the Frame in a specific position 
         Dimension size = buttonsC.getPreferredSize();
         buttonsC.setBounds(350,500,size.width, size.height);
-        buttonsC.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
-        // buttonsC.setLocation(100,100);
-        // buttonsC.add(timer);
+
         setUndecorated(true);
 		getContentPane().add((buttonsC));
         this.getContentPane().setLayout(null);
-        buttonsC.setOpaque(true);
-        // buttonsC.setOpaque(true);
-        
-		setVisible(true);
-        
 
+		setVisible(true);
 	}
-    
-    
-	// private static ImageIcon resize(ImageIcon image, int width, int height) {
-    //     BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-    //     Graphics2D g2d = (Graphics2D) bi.createGraphics();
-    //     g2d.addRenderingHints(
-    //             new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-    //     g2d.drawImage(image.getImage(), 0, 0, width, height, null);
-    //     g2d.dispose();
-    //     return new ImageIcon(bi);
-    // }
-	
-	
 }

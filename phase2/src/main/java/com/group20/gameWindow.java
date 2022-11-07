@@ -11,11 +11,10 @@ import java.awt.image.BufferedImage;
 
 public class gameWindow extends JFrame{
     
-
+    // Creates window
     gameWindow(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
-		//this.setLayout(null);
         setLayout(new BorderLayout());
         setVisible(true);
         getContentPane().setBackground(Color.black);
@@ -26,25 +25,15 @@ public class gameWindow extends JFrame{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         
         setContentPane(new JLabel(backGround));
-        //setLayout(new FlowLayout());
 
         Timer timer=new Timer();
         JPanel timerPane =new JPanel(new BorderLayout());
         timerPane.add(timer);
         timerPane.setBackground(Color.black);
-        //timerPane.setLayout(new FlowLayout());
         add(timerPane, BorderLayout.EAST);
-        //eventManager event=new eventManager();
-        //addKeyListener(event);
-        //Tick tick=new Tick(event);
-        
 
-        // if(timer.time == 10){
-        //     new EndMenu();
-        // }
        
     }
     

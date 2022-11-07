@@ -9,9 +9,13 @@ import javax.swing.*;
 public class GameInstance {
     JFrame frame;
 
+
     GameInstance(GameFactory factory){
+        // Setup the Window
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Creates and fits a background for the window
         ImageIcon backGround = new ImageIcon();
         try {
             backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("./Assets/zbackGround.jpg")));
@@ -25,9 +29,9 @@ public class GameInstance {
         frame.setContentPane(new JLabel(backGround));
         frame.setLayout(new FlowLayout());
 
-
         frame.setLayout(new BorderLayout());
 
+        // Add elementes to the Frame
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
         eventManager keylistener = new eventManager(map, board, this.frame);

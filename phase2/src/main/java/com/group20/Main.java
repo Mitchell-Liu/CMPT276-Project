@@ -7,16 +7,8 @@
  
  public class Main {
    public static void main(String[] argv) throws Exception {
-    new StartMenu();
-    // DefaultGameFactory factory1 = new DefaultGameFactory();
-    // GameInstance test = new GameInstance(factory1);
-    
-    
-
+      new StartMenu();
    } 
-    
-    
-
 }
 
  

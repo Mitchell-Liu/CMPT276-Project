@@ -8,43 +8,35 @@ public class Tick implements Runnable{
         Thread thread = new Thread(this);
             thread.start();
     }
-
+    // Moves the player based on the keybord input every second
     public void run(){
-        while(!event.map.isGameOver()){
-
-            
+        while(!event.map.isGameOver()){          
             direction di=event.Direction();
-            
-           
+                       
             switch(di){
               case up:
                 
-              //System.out.println("up"); 
               event.map.moveDiverUp();
                 event.board.updateBoard();
                
               break;
               case down:
-              //System.out.println("down");
               event.map.moveDiverDown();
                 event.board.updateBoard(); 
                 
               break;
               case right:
-              //System.out.println("right"); 
               event.map.moveDiverRight();
                 event.board.updateBoard();
                 
               break;
               case left:
-              //System.out.println("left"); 
                 event.map.moveDiverLeft();
                 event.board.updateBoard();
                 
               break;
               case pause:
-              //System.out.println("pause"); 
-              
+
                 
               break;
 
@@ -55,6 +47,7 @@ public class Tick implements Runnable{
             event.right=0;
             event.left=0;
 
+            // Checks if the game has ended and if the player has won or lost
             if(event.map.isGameLose()){
               event.frame.dispose();
               new EndMenuLose(event.map.getPlayerScore());
@@ -65,7 +58,6 @@ public class Tick implements Runnable{
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(400);
-                //Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new IllegalStateException(e);
             }
