@@ -9,13 +9,20 @@ public class tickShark extends Thread{
   // Moves the player based on the algorithm
   @Override
   public void run(){
+    direction[] sharkDi;
+    int index=0;
+    BFS shark=new BFS(event.map,event.map.shark1.getPosition());
+    sharkDi=shark.Search();
     while(!event.map.isGameOver()){
-      BFS shark=new BFS(event.map,event.map.shark1.getPosition());
+      if (index==sharkDi.length){
+         shark=new BFS(event.map,event.map.shark1.getPosition());
+        index=0;
+        sharkDi=shark.Search();
+      }
 
-      direction sharkDi=shark.Search();
-      System.out.print("Ther return direction is:"+sharkDi.name());
+      System.out.print("Ther return direction is:"+sharkDi[index].name());
 
-      switch(sharkDi){
+      switch(sharkDi[index]){
         case up:
           event.map.moveSharkUp();
           event.board.updateBoard();
@@ -41,13 +48,14 @@ public class tickShark extends Thread{
         break;
       }
       shark=null;
+      index++;
       // Checks if the game has ended and if the player has lost
       if(event.map.isGameLose()){
         event.frame.dispose();
         new EndMenuLose(event.map.getPlayerScore());
       }
       try {
-        TimeUnit.MILLISECONDS.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(600);
       } 
       catch (InterruptedException e) {
         throw new IllegalStateException(e);

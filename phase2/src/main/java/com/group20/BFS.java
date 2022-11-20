@@ -59,23 +59,27 @@ public class BFS {
      * This method will find a path using BFS
      * @return return the first direction enum 
      */
-    public direction Search(){
+    public direction[] Search(){
         Position currentPosition;
         //using BFS to search
         while(true){
             
             if(directionQueue.size()==0){
                 if(maze[start.getX()][start.getY()+1]==3){
-                    return direction.down;
+                    direction value[]={direction.down};
+                    return value;
                  }
                  if(maze[start.getX()][start.getY()-1]==3){
-                     return direction.up;
+                    direction value[]={direction.up};
+                    return value;
                  }
                  if(maze[start.getX()+1][start.getY()]==3){
-                     return direction.right;
+                    direction value[]={direction.right};
+                    return value;
                  }
                  if(maze[start.getX()-1][start.getY()]==3){
-                     return direction.left;
+                    direction value[]={direction.left};
+                    return value;
                  }
                 if(maze[start.getX()][start.getY()+1]==0){
                     direction[] inputPath={direction.down};
@@ -159,16 +163,16 @@ public class BFS {
                 }
 
                 if(maze[currentPosition.getX()][currentPosition.getY()+1]==3){
-                    return topath[0];
+                    return topath;
                  }
                  if(maze[currentPosition.getX()][currentPosition.getY()-1]==3){
-                    return topath[0];
+                    return topath;
                  }
                  if(maze[currentPosition.getX()+1][currentPosition.getY()]==3){
-                    return topath[0];
+                    return topath;
                  }
                  if(maze[currentPosition.getX()-1][currentPosition.getY()]==3){
-                    return topath[0];
+                    return topath;
                  }
 
             }
