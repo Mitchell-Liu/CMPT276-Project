@@ -23,7 +23,9 @@ public class Board extends JPanel{
     ImageIcon[] icons;
     JLabel playerScore;
     
-    //constructor for setting up the map visually
+    /**
+     * Constructor for setting up the game map visually
+     */
     Board(Map gameMap){
 
         map = gameMap;
@@ -81,7 +83,7 @@ public class Board extends JPanel{
     }
 
     
-    /** 
+    /** Returns the game map.
      * @return Map
      */
     public Map getMap(){
@@ -89,7 +91,7 @@ public class Board extends JPanel{
     }
 
     
-    /** 
+    /** Returns the player's current score.
      * @return JLabel
      */
     public JLabel getPlayerScoreLabel(){
@@ -97,6 +99,9 @@ public class Board extends JPanel{
     }
 
     //redrawn the map, base on the map array
+    /**
+     * Re-draw the map and the position of the game entities based on the map array.
+     */
     public void updateBoard(){
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){

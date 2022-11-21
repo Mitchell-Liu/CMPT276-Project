@@ -183,7 +183,7 @@ public class BFS {
      
 
     
-    /** 
+    /** Adds on new elements to an old array.
      * @param previous
      * @param addOn
      * @return direction[]
