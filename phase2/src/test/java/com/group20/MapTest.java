@@ -140,5 +140,14 @@ public class MapTest {
         assertTrue(map.isGameLose()&&map.isGameOver());
     }
 
+    @Test
+    public void diverExits(){
+        Position playerPos = new Position(18, 19);
+        map.setDiverPosition(playerPos);
+        map.openExit();
+        map.moveDiverRight();
+        assertTrue(map.isGameWin() && map.isGameOver());
+        assertEquals(map.getEntityAt(playerPos), map.getDiver());
+    }
 
 }
