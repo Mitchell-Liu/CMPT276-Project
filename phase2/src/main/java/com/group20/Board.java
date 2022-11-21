@@ -80,10 +80,18 @@ public class Board extends JPanel{
 
     }
 
+    
+    /** 
+     * @return Map
+     */
     public Map getMap(){
         return map;
     }
 
+    
+    /** 
+     * @return JLabel
+     */
     public JLabel getPlayerScoreLabel(){
         return playerScore;
     }

@@ -10,14 +10,26 @@ public class Entity {
     
     private Position pos;
 
+    
+    /** 
+     * @param position
+     */
     public void setPosition(Position position){
         this.pos = position;
     }
 
+    
+    /** 
+     * @return Position
+     */
     public Position getPosition(){
         return this.pos;
     }
 
+    
+    /** 
+     * @return Boolean
+     */
     public Boolean isCollectible(){
         if(this.getClass().getSuperclass().getSimpleName().equals("Collectible")){
             return true;
@@ -27,6 +39,10 @@ public class Entity {
         }
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getValue(){
         return 0;
     }

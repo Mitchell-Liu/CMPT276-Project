@@ -15,18 +15,34 @@ public class Position {
         yPos = y;
     }
 
+    
+    /** 
+     * @param x
+     */
     public void setX(int x){
         xPos = x;
     }
 
+    
+    /** 
+     * @param y
+     */
     public void setY(int y){
         yPos = y;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getX(){
         return this.xPos;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getY(){
         return this.yPos;
     }

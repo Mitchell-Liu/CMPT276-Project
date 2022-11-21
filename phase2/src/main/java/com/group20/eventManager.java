@@ -29,11 +29,19 @@ public class eventManager implements KeyListener{
         ts.start();
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e){
     }
 
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e){
        
@@ -59,6 +67,10 @@ public class eventManager implements KeyListener{
     }
 
     
+    
+    /** 
+     * @param e
+     */
     @Override
     public void keyReleased(KeyEvent e){
         switch(e.getKeyCode()) {
@@ -77,6 +89,10 @@ public class eventManager implements KeyListener{
         }
     }
 
+    
+    /** 
+     * @return direction
+     */
     //each tick, event manager will call this function to get the direction
      public direction Direction(){
          int add=(up+down+right+left);

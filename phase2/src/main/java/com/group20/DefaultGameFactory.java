@@ -1,6 +1,10 @@
 package com.group20;
 
 public class DefaultGameFactory extends GameFactory{
+    
+    /** 
+     * @return Map
+     */
     public Map makeMap(){
 
         // Create and place the moving entities on the map
@@ -84,6 +88,11 @@ public class DefaultGameFactory extends GameFactory{
     }
 
 
+    
+    /** 
+     * @param map
+     * @return Board
+     */
     // Create and update the board
     public Board makeBoard(Map map){
         Board board = new Board(map);

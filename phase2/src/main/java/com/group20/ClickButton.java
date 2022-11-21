@@ -17,30 +17,54 @@ public class ClickButton extends JLabel implements MouseListener{
         this.addMouseListener(this);
         setFont(new Font("Serif", Font.PLAIN, 60));
     }
+    
+    /** 
+     * @param al
+     */
     public void addActionListener(ActionListener al){
         myAL = al;
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         myAL.actionPerformed(new ActionEvent(this,501,""));
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
         this.setForeground(new Color(243, 105, 66));
     }
 
+    
+    /** 
+     * @param e
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         this.setForeground(Color.blue);

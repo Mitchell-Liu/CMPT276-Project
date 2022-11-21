@@ -182,6 +182,12 @@ public class BFS {
     }
      
 
+    
+    /** 
+     * @param previous
+     * @param addOn
+     * @return direction[]
+     */
     //expand a old array
     private direction[] addOnPath(direction[] previous,direction addOn){
         direction[] current=new direction[previous.length+1];
