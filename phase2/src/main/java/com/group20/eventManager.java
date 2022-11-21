@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 /**
- * event manager: it will listen to the keyboard input, and manage the tick of the game
+ * Event Manager: it will listen to the keyboard input, and manage the tick of the game
  */
 public class eventManager implements KeyListener{
 
@@ -29,11 +29,19 @@ public class eventManager implements KeyListener{
         ts.start();
     }
 
+    
+    /** Invoked when a key has been typed.
+     * @param e: Keyboard input.
+     */
     @Override
     public void keyTyped(KeyEvent e){
     }
 
 
+    
+    /** Invoked when a key has been pressed.
+     * @param e: Keyboard input.
+     */
     @Override
     public void keyPressed(KeyEvent e){
        
@@ -59,6 +67,10 @@ public class eventManager implements KeyListener{
     }
 
     
+    
+    /** Invoked when a key has been released.
+     * @param e: Keyboard input.
+     */
     @Override
     public void keyReleased(KeyEvent e){
         switch(e.getKeyCode()) {
@@ -77,6 +89,10 @@ public class eventManager implements KeyListener{
         }
     }
 
+    
+    /** Called each tick by the event manager to get the direction of the player.
+     * @return direction: The player's current direction.
+     */
     //each tick, event manager will call this function to get the direction
      public direction Direction(){
          int add=(up+down+right+left);

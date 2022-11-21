@@ -1,6 +1,10 @@
 package com.group20;
 
 public class DefaultGameFactory extends GameFactory{
+    
+    /** Creates an in-game map.
+     * @return Map: Newly created game level.
+     */
     public Map makeMap(){
 
         // Create and place the moving entities on the map
@@ -84,6 +88,11 @@ public class DefaultGameFactory extends GameFactory{
     }
 
 
+    
+    /** Create and update the game board.
+     * @param map: A game level.
+     * @return Board: The map array on the JPanel.
+     */
     // Create and update the board
     public Board makeBoard(Map map){
         Board board = new Board(map);
