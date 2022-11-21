@@ -6,7 +6,7 @@ package com.group20;
  * position on game map
  */
 
-public class Position {
+public class Position{
     
     private int xPos, yPos;
 
@@ -29,6 +29,25 @@ public class Position {
 
     public int getY(){
         return this.yPos;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if(object==this){
+            return true;
+        }
+        if(!(object instanceof Position)){
+            return false;
+        }
+        
+        Position compare = (Position) object;
+
+        if(this.getX()!=compare.getX()||this.getY()!=compare.getY()){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }
