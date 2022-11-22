@@ -197,7 +197,7 @@ public class MapTest {
         map.openExit();
         map.moveDiverRight();
         assertTrue(map.isGameWin() && map.isGameOver());
-        assertEquals(map.getEntityAt(playerPos), map.getDiver());
+        assertEquals(map.getEntityAt(playerPos), null);
     }
 
 }

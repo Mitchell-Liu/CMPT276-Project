@@ -230,13 +230,9 @@ public class Map {
                 this.removeEntityAt(currentPosition);
                 this.setEntityAt(diver, newPosition);
                 this.setDiverPosition(newPosition);
-                System.out.println("Player Score: "+playerScore);
                 this.setCoinsRemaining(this.getCoinsRemaining()-1);
-                System.out.println("Remaining Coins: "+coinsRemaining);
                 if(this.allCoinsCollected()){
                     this.openExit();
-                    System.out.println(this.getEntityNameAt(new Position(19, 14)));
-                    System.out.println(this.positionIsVacant(new Position(19, 14)));
                 }
                 break;
             case "TreasureChest":
@@ -246,7 +242,6 @@ public class Map {
                 this.removeEntityAt(currentPosition);
                 this.setEntityAt(diver, newPosition);
                 this.setDiverPosition(newPosition);
-                System.out.println("Player Score: "+playerScore);
                 break;
             // Collects the seaweed and removes points from the player
             case "Seaweed":
@@ -256,7 +251,6 @@ public class Map {
                 this.removeEntityAt(currentPosition);
                 this.setEntityAt(diver, newPosition);
                 this.setDiverPosition(newPosition);
-                System.out.println("Player Score: "+playerScore);
                 if(playerScore<0){
                     gameLose = true;
                     gameOver = true;
