@@ -14,9 +14,9 @@ public class BFS {
     //3 is destination
     //2 is block being searched
     //1 is wall
-    BFS(Map map,Position start){
+    BFS(Map map){
         this.map=map;
-        this.start=start;
+        this.start=map.shark1.getPosition();
         // convert the map to an 2d array containing number
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
@@ -44,7 +44,7 @@ public class BFS {
                     case "Exit":
                         maze[i][j]=1;      
                     default:
-                            
+                    maze[i][j]=0;    
 
                 }
             }
@@ -163,16 +163,20 @@ public class BFS {
                 }
 
                 if(maze[currentPosition.getX()][currentPosition.getY()+1]==3){
-                    return topath;
+                    direction[] inputPath=addOnPath(topath,direction.down);
+                    return inputPath;
                  }
                  if(maze[currentPosition.getX()][currentPosition.getY()-1]==3){
-                    return topath;
+                    direction[] inputPath=addOnPath(topath,direction.up);
+                    return inputPath;
                  }
                  if(maze[currentPosition.getX()+1][currentPosition.getY()]==3){
-                    return topath;
+                    direction[] inputPath=addOnPath(topath,direction.right);
+                    return inputPath;
                  }
                  if(maze[currentPosition.getX()-1][currentPosition.getY()]==3){
-                    return topath;
+                    direction[] inputPath=addOnPath(topath,direction.left);
+                    return inputPath;
                  }
 
             }
