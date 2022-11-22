@@ -190,6 +190,7 @@ public class MapTest {
         assertTrue(map.isGameLose()&&map.isGameOver());
     }
 
+    // Checks if the diver wins when they reach the exit
     @Test
     public void diverExits(){
         Position playerPos = new Position(18, 19);
