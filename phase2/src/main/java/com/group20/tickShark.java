@@ -11,11 +11,11 @@ public class tickShark extends Thread{
   public void run(){
     direction[] sharkDi;
     int index=0;
-    BFS shark=new BFS(event.map,event.map.shark1.getPosition());
+    BFS shark=new BFS(event.map);
     sharkDi=shark.Search();
     while(!event.map.isGameOver()){
       if (index==sharkDi.length){
-         shark=new BFS(event.map,event.map.shark1.getPosition());
+         shark=new BFS(event.map);
         index=0;
         sharkDi=shark.Search();
       }
