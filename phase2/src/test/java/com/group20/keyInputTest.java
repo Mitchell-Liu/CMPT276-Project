@@ -1,19 +1,15 @@
 package com.group20;
 
-import java.awt.AWTException;
-import java.awt.Robot;
 
-import java.io.*;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+
 import org.junit.*;
 
 public class keyInputTest {
     eventManager event;
-    Robot robot ;
+    
     @Before
-    public void makeEventManager() throws AWTException{
+    public void makeEventManager(){
          
         
         Map map=new Map();
