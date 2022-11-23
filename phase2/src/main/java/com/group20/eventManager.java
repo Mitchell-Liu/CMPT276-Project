@@ -76,15 +76,20 @@ public class eventManager implements KeyListener{
         switch(e.getKeyCode()) {
             case 37: 
            
+                left=0;
+                
                 break;
             case 38: 
             
+                up=0;
                 break;
             case 39: 
             
+                right=0;
                 break;
             case 40:
            
+                down=0;
                 break;
         }
     }
