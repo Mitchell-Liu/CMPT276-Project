@@ -110,12 +110,12 @@ public class BFS {
             }
             else{
 
-                 currentPosition=new Position(start.getX(),start.getY());
-                direction[] topath=directionQueue.remove();
+                currentPosition = new Position(start.getX(),start.getY());
+                direction[] topath = directionQueue.remove();
                 
-                int dx=0;
-                int dy=0;
-                for (int i=0;i<topath.length;i++){
+                int dx = 0;
+                int dy = 0;
+                for (int i = 0;i<topath.length;i++){
                     switch(topath[i]){
                         case down:
                             dy++;
@@ -137,10 +137,9 @@ public class BFS {
                 currentPosition.setY(currentPosition.getY()+dy);
                 
                 if(maze[currentPosition.getX()][currentPosition.getY()+1]==0){
+
                     direction[] inputPath=addOnPath(topath,direction.down);
-
                     
-
                     directionQueue.add(inputPath);
                 }
                 if(maze[currentPosition.getX()][currentPosition.getY()-1]==0){

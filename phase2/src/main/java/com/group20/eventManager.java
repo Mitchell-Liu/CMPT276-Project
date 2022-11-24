@@ -8,13 +8,13 @@ import java.awt.*;
  */
 public class eventManager implements KeyListener{
 
-     int up,down,right,left;
-     JTextArea ta;
-     Board board;
-     Map map;
-     Diver diver;
-     JFrame frame;
-     tickShark ts=new tickShark(this);
+    int up,down,right,left;
+    JTextArea ta;
+    Board board;
+    Map map;
+    Diver diver;
+    JFrame frame;
+    tickShark ts=new tickShark(this);
     Timer timer;
     //private eventManager event=new eventManager();    
     public eventManager(Map gameMap, Board playarea, JFrame frame,Timer timer){

@@ -23,10 +23,10 @@ public class BFSTest {
         map.setDiver(player);
         map.setSharks(shark);
 
-        BFS bfs=new BFS(map);
+        BFS bfs = new BFS(map);
 
-        direction[] result=bfs.Search();
-        direction[] expected={direction.up};
+        direction[] result = bfs.Search();
+        direction[] expected = {direction.up};
         assertArrayEquals(expected, result);
      }
 
