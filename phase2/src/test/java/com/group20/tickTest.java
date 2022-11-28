@@ -7,8 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 public class tickTest {
 
-    
+    //This Test is a integration test
 
+    //This test will move the diver up untill it block by the wall 
     @Test
     public void testGoesUp(){
         Map map=new Map();
@@ -40,6 +41,7 @@ public class tickTest {
         event.up=0;
     }
 
+    //This test simulate player press up and down so that diver won't move 
     @Test
     public void testDontGo(){
         Map map=new Map();
