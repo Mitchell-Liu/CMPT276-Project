@@ -2,7 +2,7 @@ package com.group20;
 import java.util.concurrent.TimeUnit;
 
 /**
- * tick class will call eventManager function every tick period
+ * Calls the eventManager function every tick period. 
  */
 public class Tick implements Runnable{
     
@@ -11,7 +11,9 @@ public class Tick implements Runnable{
         Thread thread = new Thread(this);
             thread.start();
     }
-    // Moves the player based on the keybord input every second
+    /** Moves the player based on the keyboard input every tick period.
+     * 
+     */
     public void run(){
         while(!event.map.isGameOver()){          
             direction di=event.Direction();

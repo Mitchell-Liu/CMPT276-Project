@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 /**
- * Event Manager: it will listen to the keyboard input, and manage the tick of the game
+ * Listens to keyboard input and manages the tick of the game.
  */
 public class eventManager implements KeyListener{
 

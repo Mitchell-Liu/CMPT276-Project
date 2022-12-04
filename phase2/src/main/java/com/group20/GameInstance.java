@@ -5,7 +5,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
+/**
+ * Creates an instance of the game. Sets up the window for the game and starts the player at the main menu.
+ */
 public class GameInstance {
     JFrame frame;
 

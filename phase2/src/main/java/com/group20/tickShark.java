@@ -1,12 +1,17 @@
 package com.group20;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Controls the shark once every game tick.
+ */
 public class tickShark extends Thread{
     
   tickShark(eventManager event){
       this.event=event;
   }
   // Moves the player based on the algorithm
+  /** Moves the shark based on the BFS algorithm.
+   * 
+   */
   @Override
   public void run(){
     direction[] sharkDi;

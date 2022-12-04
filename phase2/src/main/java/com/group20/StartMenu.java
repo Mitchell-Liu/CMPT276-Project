@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.awt.image.BufferedImage;
 
 /**
- * startMenu, player can choose start a game or exit
+ * The start menu. The player can choose to start a game or exit.
  */
 public class StartMenu extends JFrame{
 

@@ -1,6 +1,6 @@
 package com.group20;
 /**
- * TreasureChest for the player to collect
+ * Collectible entity which gives the player points.
  */
 public class TreasureChest extends Collectible{
     TreasureChest(Position pos){

@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * The timer class to keep track of how much time the player spends playing the game
+ * Keeps track of how much time the player spends playing the game.
  */
 
 public class Timer extends JLabel  implements Runnable{
@@ -25,7 +25,9 @@ public class Timer extends JLabel  implements Runnable{
         thread.start();
         
     }
-
+    /** Starts the timer.
+     * 
+     */
     public void run(){
         while(!exit){
 
@@ -42,14 +44,21 @@ public class Timer extends JLabel  implements Runnable{
         
         }
     }
-
+    /**
+     * Pauses the timer.
+     */
     public void pause(){
         running=false;
     }
+    /**
+     * Resumes a paused timer.
+     */
     public void resume(){
         running=true;
     }
-
+    /**
+     * Ends and exits a timer.
+     */
     public void exit(){
         exit=true;
     }

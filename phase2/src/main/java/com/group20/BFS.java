@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.LinkedList;
 
 
-
+/**
+ * The BFS algorithm that the sharks use to chase the player over the game board.
+ */
 public class BFS {
     Map map;
     Queue<direction[]> directionQueue= new LinkedList<>();

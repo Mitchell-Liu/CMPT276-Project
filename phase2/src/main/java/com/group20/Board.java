@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.awt.image.BufferedImage;
 
 /**
- * The board class will draw the map array on the Jpanel
+ * Draws the map array on the JPanel.
  */
 public class Board extends JPanel{
 

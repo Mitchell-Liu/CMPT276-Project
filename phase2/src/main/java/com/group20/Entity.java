@@ -1,9 +1,9 @@
 package com.group20;
 
 /**
- * Class: Entity
- * Description: Class to be extended by all subsequent game entities
- * Entities all share position attribute
+ * 
+ * Class to be extended by all subsequent game entities.
+ * All entities share a position attribute.
  */
 
 public class Entity {

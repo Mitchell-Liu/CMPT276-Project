@@ -1,9 +1,9 @@
 package com.group20;
 
 /**
- * Class: Position
- * Description: Object used as attribute for entities to track their
- * position on game map
+ * 
+ * Used as an attribute for entities to track their
+ * position on the game map.
  */
 
 public class Position{
@@ -16,32 +16,32 @@ public class Position{
     }
 
     
-    /** 
-     * @param x
+    /** Sets X coordinate for an entity on the game map.
+     * @param x The x coordinate. 
      */
     public void setX(int x){
         xPos = x;
     }
 
     
-    /** 
-     * @param y
+    /** Sets Y coordinate for an entity on the game map.
+     * @param y The y coordinate.
      */
     public void setY(int y){
         yPos = y;
     }
 
     
-    /** 
-     * @return int
+    /** Gets X coordinate for an entity on the game map.
+     * @return The x coordinate.
      */
     public int getX(){
         return this.xPos;
     }
 
     
-    /** 
-     * @return int
+    /** Gets Y coordinate for an entity on the game map.
+     * @return The y coordinate.
      */
     public int getY(){
         return this.yPos;

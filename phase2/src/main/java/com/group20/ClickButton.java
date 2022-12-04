@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
+/**
+ * Implements user mouse inputs.
+ */
 public class ClickButton extends JLabel implements MouseListener{
     ActionListener myAL;
     public ClickButton(String str){

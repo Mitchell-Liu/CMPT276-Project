@@ -1,5 +1,8 @@
 package com.group20;
 
+/**
+ * A type of entity that the player collects to gain points and open the level exit.
+ */
 public class Collectible extends Entity{
     
     private int value;

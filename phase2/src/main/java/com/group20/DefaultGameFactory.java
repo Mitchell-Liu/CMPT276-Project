@@ -1,5 +1,7 @@
 package com.group20;
-
+/**
+ * Contains methods for creating and updating game levels.
+ */
 public class DefaultGameFactory extends GameFactory{
     
     /** Creates an in-game map.

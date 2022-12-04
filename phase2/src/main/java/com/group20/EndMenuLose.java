@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
-
+/**
+ * Menu that appears upon losing the game.
+ */
 public class EndMenuLose extends JFrame{
 
 	
