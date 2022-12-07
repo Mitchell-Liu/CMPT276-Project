@@ -2,7 +2,6 @@ package com.group20;
 
 import java.awt.*;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 /**

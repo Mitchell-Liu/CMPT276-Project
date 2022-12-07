@@ -4,6 +4,10 @@ package com.group20;
  */
 public class Diver extends Entity{
     
+    /**
+     * Constructor for Diver
+     * @param position initial postition for diver instance
+     */
     Diver(Position position){
         this.setPosition(position);
     }
