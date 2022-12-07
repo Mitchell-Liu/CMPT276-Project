@@ -1,8 +1,4 @@
  package com.group20;
- import java.util.Timer;
- import java.util.TimerTask;
- import java.util.concurrent.TimeUnit;
- import java.io.File;
  
  /**
   * Main class of the program where the game code is executed.

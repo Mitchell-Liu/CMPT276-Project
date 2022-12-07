@@ -1,7 +1,5 @@
 package com.group20;
 
-import javax.swing.JFrame;
-
 /**
  * 
  * Stores all game entities. 
