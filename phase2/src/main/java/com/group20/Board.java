@@ -40,7 +40,7 @@ public class Board extends JPanel {
 
     }
 
-    /** create and configure the socre board for the game */
+    
     private void createScoreBoard() {
         playerScore = new JLabel("YOUR SCORE:\n" + map.getPlayerScore());
         playerScore.setFont(new Font(Font.MONOSPACED, Font.BOLD, 24));
@@ -50,7 +50,7 @@ public class Board extends JPanel {
         playerScore.setPreferredSize(new Dimension(200, 300));
     }
 
-    /** create and configure the game board for the game */
+    
     private void createGameBoard() {
         board = new JLabel[20][20];
         for (int i = 0; i < 20; i++) {
@@ -63,7 +63,7 @@ public class Board extends JPanel {
         }
     }
 
-    /** scale the import images to deisre size */
+    
     private void scaleImage() {
         labels = new JLabel[7];
         icons = new ImageIcon[7];
@@ -79,7 +79,7 @@ public class Board extends JPanel {
         }
     }
 
-    /** read resource from the resouce file */
+    
     private void readResouce() {
         allImages = new BufferedImage[7];
         try {
