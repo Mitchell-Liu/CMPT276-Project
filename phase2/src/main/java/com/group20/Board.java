@@ -27,8 +27,6 @@ public class Board extends JPanel {
 
         map = gameMap;
 
-        board = new JLabel[20][20];
-
         this.setLayout(null);
         this.setOpaque(false);
 
@@ -54,6 +52,7 @@ public class Board extends JPanel {
 
     /** create and configure the game board for the game */
     private void createGameBoard() {
+        board = new JLabel[20][20];
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 board[i][j] = new JLabel();
