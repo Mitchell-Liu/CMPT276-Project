@@ -3,11 +3,8 @@ import java.awt.Color;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
-import java.awt.image.BufferedImage;
+
 /**
  * Window that is opened when the game runs.
  */

@@ -1,7 +1,6 @@
 package com.group20;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 
 /**
  * Listens to keyboard input and manages the tick of the game.

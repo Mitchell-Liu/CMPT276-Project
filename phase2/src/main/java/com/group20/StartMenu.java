@@ -1,17 +1,12 @@
 package com.group20;
-import java.awt.Color;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.Dimension;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.image.BufferedImage;
 
 /**
  * The start menu. The player can choose to start a game or exit.

@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.Color;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
