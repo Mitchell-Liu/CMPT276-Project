@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class tickTest {
 
-    //This Test is a integration test
+    //This Test is a integration test of class Tick, Map and eventManager
 
     //This test will move the diver up untill it block by the wall 
     @Test

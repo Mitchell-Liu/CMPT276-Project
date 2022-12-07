@@ -1,4 +1,7 @@
 package com.group20;
+
+import java.io.IOException;
+
 /**
  * Contains methods for creating and updating game levels.
  */

@@ -31,7 +31,7 @@ public class StartMenu extends JFrame{
         // Creates and fits a background for the window
 		ImageIcon backGround = new ImageIcon();
         try{
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/StartBac.png")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/StartBac.png")));
         }
         catch(IOException e){
             e.printStackTrace();

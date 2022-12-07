@@ -18,6 +18,7 @@ public class keyInputTest {
     }
 
     //Test when player only press one arrow key
+    //expect the direction is the correspond direction
     @Test
     public void TestSingleKeyPress(){
        
@@ -35,7 +36,8 @@ public class keyInputTest {
         event.left=0;
     }
 
-    //Test when player only press multiple arrow key
+    //Test when player only press multiple arrow key at once
+    //expect the direction is pause
     @Test
     public void TestMultipleKeyPress(){
        

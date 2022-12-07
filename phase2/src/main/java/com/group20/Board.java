@@ -25,43 +25,57 @@ public class Board extends JPanel{
     
     /**
      * Constructor for setting up the game map visually
+     * 
      */
-    Board(Map gameMap){
+    Board(Map gameMap) {
 
         map = gameMap;
 
         board = new JLabel[20][20];
 
         
-        File path = new File("./phase2/src/main/java/com/group20/Assets");
+       // File path = new File("./phase2/src/main/java/com/group20/Assets");
 
-        File[] allFiles = path.listFiles();
+       // File[] allFiles = path.listFiles();
 
-        allImages = new BufferedImage[allFiles.length];
+        allImages = new BufferedImage[7];
 
         this.setLayout(null);
         //this.setBackground(Color.BLUE);
         this.setOpaque (false);
 
-        labels = new JLabel[allFiles.length];
-        icons = new ImageIcon[allFiles.length];
+        labels = new JLabel[7];
+        icons = new ImageIcon[7];
 
-        for(int i=0; i<allFiles.length; i++){
-            try{
-                allImages[i] = ImageIO.read(allFiles[i]);
-                labels[i] = new JLabel();
-                ImageIcon icon = new ImageIcon(allImages[i]);
-                Image image = icon.getImage();
-                Image scaled = image.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);
-                icon = new ImageIcon(scaled);
-                labels[i].setIcon(icon);
-                labels[i].setSize(30, 30);
-                icons[i] = icon;
-            }
-            catch(IOException e){
 
-            }
+        
+       
+    try{
+        allImages[0] =   ImageIO.read(this.getClass().getResource("/coin.png"));
+        allImages[1] =  ImageIO.read(this.getClass().getResource("/scuba diver.png"));
+        allImages[2] =   ImageIO.read(this.getClass().getResource("/seaweed.png"));
+        allImages[3] =   ImageIO.read(this.getClass().getResource("/shark.png"));
+        allImages[4] =   ImageIO.read(this.getClass().getResource("/treasure chest.png"));
+        allImages[5] =   ImageIO.read(this.getClass().getResource("/wall.jpg"));
+        allImages[6] =  ImageIO.read(this.getClass().getResource("/StartBac.png"));
+    }
+    catch(IOException e){
+        e.printStackTrace();
+    }
+
+
+
+        for(int i=0; i<7; i++){
+            labels[i] = new JLabel();
+            ImageIcon icon = new ImageIcon(allImages[i]);
+            Image image = icon.getImage();
+            Image scaled = image.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);
+            icon = new ImageIcon(scaled);
+            labels[i].setIcon(icon);
+            labels[i].setSize(30, 30);
+            icons[i] = icon;
         }
+
 
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){

@@ -20,7 +20,7 @@ public class GameInstance {
         // Creates and fits a background for the window
         ImageIcon backGround = new ImageIcon();
         try {
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("./Assets/zbackGround.jpg")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/zbackGround.jpg")));
         } catch (IOException e) {
             e.printStackTrace();
         }
