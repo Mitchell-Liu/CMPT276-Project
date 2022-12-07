@@ -36,7 +36,7 @@ public class GameInstance {
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
         Timer timer = new Timer();
-        eventManager keylistener = new eventManager(map, board, this.frame,timer);
+        eventManager keylistener = new eventManager(map, board,timer);
         JPanel scoreboard = new JPanel();
         scoreboard.setLayout(new BorderLayout());
         JLabel scoreText = board.getPlayerScoreLabel();
