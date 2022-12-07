@@ -25,7 +25,7 @@ public class EndMenuLose extends JFrame{
         // Creates and fits a background for the window
 		ImageIcon backGround = new ImageIcon();
         try{
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("resources/images/LoseBac.png")));
+            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/LoseBac.png")));
         }
         catch(IOException e){
             e.printStackTrace();
