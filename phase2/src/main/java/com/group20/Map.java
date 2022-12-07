@@ -15,6 +15,10 @@ public class Map {
     int coinsRemaining, playerScore;
     Boolean gameOver, gameWin, gameLose;
     
+    /**
+     * Default constructor for Map objects
+     * initializes all key attributes
+     */
     Map(){
         entities = new Entity[20][20];
         playerScore = 0;
@@ -537,7 +541,7 @@ public class Map {
     }
 
     /** Sets the border walls for the game level.
-     * 
+     *  Used in factory methods
      */
     public void setBorderWalls(){
         for(int i = 0; i<20; i++){

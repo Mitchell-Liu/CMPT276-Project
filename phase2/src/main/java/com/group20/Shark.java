@@ -5,6 +5,10 @@ package com.group20;
  */
 public class Shark extends Entity{
     
+    /**
+     * Constructor for Shark objects
+     * @param pos initial position of Shark instance
+     */
     Shark(Position position){
         this.setPosition(position);
     }
