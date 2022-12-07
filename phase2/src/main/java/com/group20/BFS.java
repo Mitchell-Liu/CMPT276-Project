@@ -17,7 +17,7 @@ public class BFS {
     //1 is wall
     BFS(Map map){
         this.map=map;
-        this.start=map.shark1.getPosition();
+        this.start=map.getShark1Position();
         // convert the map to an 2d array containing number
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
