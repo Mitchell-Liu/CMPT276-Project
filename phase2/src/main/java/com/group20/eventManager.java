@@ -16,9 +16,9 @@ public class eventManager implements KeyListener{
     tickShark ts=new tickShark(this);
     Timer timer;
     //private eventManager event=new eventManager();    
-    public eventManager(Map gameMap, Board playarea, Timer timer){
+    public eventManager(Map gameMap, Board playarea, JFrame frame,Timer timer){
         this.timer=timer;
-       
+        this.frame = frame;
         map = gameMap;
         board = playarea;
         up=0;

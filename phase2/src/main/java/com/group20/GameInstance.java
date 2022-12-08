@@ -2,6 +2,7 @@ package com.group20;
 
 import java.awt.*;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 /**
@@ -36,7 +37,7 @@ public class GameInstance {
         Map map = factory.makeMap();
         Board board = factory.makeBoard(map);
         Timer timer = new Timer();
-        eventManager keylistener = new eventManager(map, board,timer);
+        eventManager keylistener = new eventManager(map, board, this.frame,timer);
         JPanel scoreboard = new JPanel();
         scoreboard.setLayout(new BorderLayout());
         JLabel scoreText = board.getPlayerScoreLabel();

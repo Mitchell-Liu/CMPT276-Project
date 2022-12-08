@@ -19,7 +19,7 @@ public class tickTest {
         Position WallPos = new Position(5, 3);
         map.placeWall(WallPos);
 
-        eventManager event=new eventManager(map, null,  null);
+        eventManager event=new eventManager(map, null, null, null);
         Tick tick=new Tick(event);
 
         event.up=1;
@@ -51,7 +51,7 @@ public class tickTest {
         Position WallPos = new Position(5, 3);
         map.placeWall(WallPos);
 
-        eventManager event=new eventManager(map, null, null);
+        eventManager event=new eventManager(map, null, null, null);
         Tick tick=new Tick(event);
 
         event.up=1;

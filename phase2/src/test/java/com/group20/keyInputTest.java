@@ -14,7 +14,7 @@ public class keyInputTest {
         
         Map map=new Map();
         
-        event=new eventManager(map, null,  null);
+        event=new eventManager(map, null, null, null);
     }
 
     //Test when player only press one arrow key
