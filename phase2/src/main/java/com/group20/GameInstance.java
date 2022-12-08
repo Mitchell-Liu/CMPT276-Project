@@ -16,7 +16,16 @@ public class GameInstance {
         // Setup the Window
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(815,635);
+        readBackgournd();
 
+        setElements(factory);
+       
+        
+        frame.setVisible(true);
+    }
+
+    private void readBackgournd(){
         // Creates and fits a background for the window
         ImageIcon backGround = new ImageIcon();
         try {
@@ -32,29 +41,30 @@ public class GameInstance {
         frame.setLayout(new FlowLayout());
 
         frame.setLayout(new BorderLayout());
+    }
 
-        // Add elementes to the Frame
-        Map map = factory.makeMap();
-        Board board = factory.makeBoard(map);
-        Timer timer = new Timer();
-        eventManager keylistener = new eventManager(board, this.frame,timer);
-        JPanel scoreboard = new JPanel();
-        scoreboard.setLayout(new BorderLayout());
-        JLabel scoreText = board.getPlayerScoreLabel();
-        
-        timer.setHorizontalAlignment(JLabel.CENTER);
-        timer.setVerticalAlignment(JLabel.CENTER);
-        scoreboard.add(scoreText, BorderLayout.NORTH);
-        scoreboard.add(timer, BorderLayout.SOUTH);
-        scoreboard.setOpaque(false);
-        frame.setSize(815,635);
-        board.setBounds(0,0,600,600); 
-        frame.addKeyListener(keylistener); 
-        board.setPreferredSize(new Dimension(600,600));
-        timer.setPreferredSize(new Dimension(200, 300));
-        frame.add(board, BorderLayout.CENTER);
-        frame.add(scoreboard, BorderLayout.EAST);
-        
-        frame.setVisible(true);
+    private void setElements(GameFactory factory){
+         // Add elementes to the Frame
+         Map map = factory.makeMap();
+         Board board = factory.makeBoard(map);
+         Timer timer = new Timer();
+         eventManager keylistener = new eventManager(board, this.frame,timer);
+         JPanel scoreboard = new JPanel();
+         scoreboard.setLayout(new BorderLayout());
+         JLabel scoreText = board.getPlayerScoreLabel();
+         
+         timer.setHorizontalAlignment(JLabel.CENTER);
+         timer.setVerticalAlignment(JLabel.CENTER);
+         scoreboard.add(scoreText, BorderLayout.NORTH);
+         scoreboard.add(timer, BorderLayout.SOUTH);
+         scoreboard.setOpaque(false);
+         
+         board.setBounds(0,0,600,600); 
+         frame.addKeyListener(keylistener); 
+         board.setPreferredSize(new Dimension(600,600));
+         timer.setPreferredSize(new Dimension(200, 300));
+ 
+         frame.add(board, BorderLayout.CENTER);
+         frame.add(scoreboard, BorderLayout.EAST);
     }
 }
