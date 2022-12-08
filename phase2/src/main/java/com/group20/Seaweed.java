@@ -10,7 +10,10 @@ public class Seaweed extends Collectible{
      * @param pos position of seaweed instance
      */
     Seaweed(Position pos){
-        this.setValue(-10);
         this.setPosition(pos);
+    }
+
+    public int getValue(){
+        return seaweedVal;
     }
 }

@@ -9,7 +9,10 @@ public class TreasureChest extends Collectible{
      * @param pos position of TreasureChest instance
      */
     TreasureChest(Position pos){
-        this.setValue(20);
         this.setPosition(pos);
+    }
+
+    public int getValue(){
+        return treasureVal;
     }
 }
