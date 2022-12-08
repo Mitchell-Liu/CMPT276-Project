@@ -6,8 +6,8 @@ How to build run and test
 
 First Step: cd to phase2 directory and open terminal:
 
-build: type "mvn compile" 
+build jar file: type "mvn package" , this will generate an executable jar file in the target directory
 
-run: type "mvn exec:java"
+run: go to taget folder, then type "java -jar phase2-0.0.1.jar"
 
 test: type "mvn test"
