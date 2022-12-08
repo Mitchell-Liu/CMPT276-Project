@@ -40,7 +40,9 @@ public class Board extends JPanel {
 
     }
 
-    
+    /**
+     * Creates scoreboard element for UI
+     */
     private void createScoreBoard() {
         playerScore = new JLabel("YOUR SCORE:\n" + map.getPlayerScore());
         playerScore.setFont(new Font(Font.MONOSPACED, Font.BOLD, 24));
@@ -50,20 +52,23 @@ public class Board extends JPanel {
         playerScore.setPreferredSize(new Dimension(200, 300));
     }
 
-    
+    /**
+     * Initializes and formats JLabel array
+     */
     private void createGameBoard() {
         board = new JLabel[20][20];
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 board[i][j] = new JLabel();
                 board[i][j].setBounds(i * 30, j * 30, 30, 30);
-                // board[i][j].setIcon(icons[6]);
                 this.add(board[i][j]);
             }
         }
     }
 
-    
+    /**
+     * Formats all asset images for use in game UI
+     */
     private void scaleImage() {
         labels = new JLabel[7];
         icons = new ImageIcon[7];
@@ -79,7 +84,9 @@ public class Board extends JPanel {
         }
     }
 
-    
+    /**
+     * Creates image array from assets folder
+     */
     private void readResouce() {
         allImages = new BufferedImage[7];
         try {
@@ -113,7 +120,6 @@ public class Board extends JPanel {
         return playerScore;
     }
 
-    // redrawn the map, base on the map array
     /**
      * Re-draw the map and the position of the game entities based on the map array.
      */

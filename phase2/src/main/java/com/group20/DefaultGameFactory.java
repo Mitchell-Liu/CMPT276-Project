@@ -114,7 +114,6 @@ public class DefaultGameFactory extends GameFactory {
      * @param map: A game level.
      * @return Board: The map array on the JPanel.
      */
-    // Create and update the board
     public Board makeBoard(Map map) {
         Board board = new Board(map);
         board.updateBoard();

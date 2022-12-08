@@ -221,7 +221,6 @@ public class Map {
     /**  Manages behaviour upon collision detection for an entity and the entity it is interacting with.
      * @param newPosition The position of the entity being interacted with.
      */
-    // collision detection for the entity
     public void manageCollisionAt(Position newPosition){
         String name = getEntityNameAt(newPosition);
         Position currentPosition = this.getDiverPosition();
@@ -440,7 +439,6 @@ public class Map {
      * @param entity The given entity.
      * @param position The given position.
      */
-    //Inserts given entity at given position. Entity cannot already be present on map
     public void setEntityAt(Entity entity, Position position){
         if(this.positionIsVacant(position)){
             entities[position.getX()][position.getY()] = entity;
