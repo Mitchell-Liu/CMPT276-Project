@@ -44,7 +44,7 @@ public class GameInstance {
     }
 
     private void setElements(GameFactory factory){
-         // Add elements to the Frame
+         // Add elementes to the Frame
          Map map = factory.makeMap();
          Board board = factory.makeBoard(map);
          Timer timer = new Timer();

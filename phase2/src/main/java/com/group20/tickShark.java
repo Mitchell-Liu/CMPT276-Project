@@ -8,7 +8,7 @@ public class tickShark extends Thread{
   tickShark(eventManager event){
       this.event=event;
   }
-  
+  // Moves the player based on the algorithm
   /** Moves the shark based on the BFS algorithm.
    * 
    */
