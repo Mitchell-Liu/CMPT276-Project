@@ -10,13 +10,13 @@ import java.awt.image.BufferedImage;
 /**
  * Menu that appears upon losing the game.
  */
-public class EndMenuLose extends JFrame{
+public class EndMenu extends JFrame{
 
 	
 	JLabel label;
 	
 	
-	EndMenuLose(int plScore){		
+	EndMenu(int plScore, boolean result){		
         // Setup the Window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000,800);
@@ -25,14 +25,19 @@ public class EndMenuLose extends JFrame{
         // Creates and fits a background for the window
 		ImageIcon backGround = new ImageIcon();
         try{
-            backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/LoseBac.png")));
+            if(result == true){
+                backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/WinBac.png")));
+            }
+            else{
+                backGround = new ImageIcon(ImageIO.read(this.getClass().getResource("/LoseBac.png")));
+            }
         }
         catch(IOException e){
             e.printStackTrace();
         }
         Image image = backGround.getImage();
-        Image scaled = image.getScaledInstance(1000,800 , java.awt.Image.SCALE_SMOOTH);
-        backGround = new ImageIcon(scaled);
+        Image scaledImage = image.getScaledInstance(1000,800 , java.awt.Image.SCALE_SMOOTH);
+        backGround = new ImageIcon(scaledImage);
         this.setContentPane((new JLabel(backGround)));
     
         
@@ -44,9 +49,11 @@ public class EndMenuLose extends JFrame{
         ClickButton startButton = new ClickButton("Main Menu");
         ClickButton restartButton = new ClickButton("Restart");
         ClickButton exitButton = new ClickButton("Exit Game");
+
         JLabel score = new JLabel("SCORE: " + plScore);
         score.setFont((new Font("Serif", Font.PLAIN, 50)));
         score.setForeground(Color.black);
+        
         JLabel time = new JLabel("TIME: " + Timer.time);
         time.setFont((new Font("Serif", Font.PLAIN, 50)));
         time.setForeground(Color.black);
@@ -77,7 +84,7 @@ public class EndMenuLose extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 DefaultGameFactory factory1 = new DefaultGameFactory();
-                GameInstance test = new GameInstance(factory1);
+                new GameInstance(factory1);
                 dispose();
             }
         });
@@ -93,6 +100,7 @@ public class EndMenuLose extends JFrame{
         Dimension size = buttonsC.getPreferredSize();
         buttonsC.setBounds(350,400,size.width, size.height);
 
+        // Removes any decorations from the frame and adds the buttons
         setUndecorated(true);
 		getContentPane().add((buttonsC));
         this.getContentPane().setLayout(null);

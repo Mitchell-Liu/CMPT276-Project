@@ -20,7 +20,7 @@ public class tickShark extends Thread{
     sharkDi=shark.Search();
     while(!event.map.isGameOver()){
       if (index==sharkDi.length){
-         shark=new BFS(event.map);
+        shark=new BFS(event.map);
         index=0;
         sharkDi=shark.Search();
       }
@@ -57,7 +57,7 @@ public class tickShark extends Thread{
       // Checks if the game has ended and if the player has lost
       if(event.map.isGameLose()){
         event.frame.dispose();
-        new EndMenuLose(event.map.getPlayerScore());
+        new EndMenu(event.map.getPlayerScore(), false);
       }
       try {
         TimeUnit.MILLISECONDS.sleep(600);
