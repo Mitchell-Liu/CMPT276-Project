@@ -13,8 +13,8 @@ public class keyInputTest {
          
         
         Map map=new Map();
-        
-        event=new eventManager(map, null, null, null);
+        Board board=new Board(map);
+        event=new eventManager( board, null, null);
     }
 
     //Test when player only press one arrow key

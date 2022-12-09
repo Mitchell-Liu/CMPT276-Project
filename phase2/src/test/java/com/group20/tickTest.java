@@ -1,7 +1,5 @@
 package com.group20;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 import org.junit.*;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +19,8 @@ public class tickTest {
         Position WallPos = new Position(5, 3);
         map.placeWall(WallPos);
 
-        eventManager event=new eventManager(map, null, null, null);
+        Board board=new Board(map);
+        eventManager event=new eventManager(board, null, null);
         Tick tick=new Tick(event);
 
         event.up=1;
@@ -52,8 +51,8 @@ public class tickTest {
 
         Position WallPos = new Position(5, 3);
         map.placeWall(WallPos);
-
-        eventManager event=new eventManager(map, null, null, null);
+        Board board=new Board(map);
+        eventManager event=new eventManager(board, null, null);
         Tick tick=new Tick(event);
 
         event.up=1;

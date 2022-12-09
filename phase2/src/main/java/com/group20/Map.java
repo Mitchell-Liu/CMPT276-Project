@@ -1,7 +1,5 @@
 package com.group20;
 
-import javax.swing.JFrame;
-
 /**
  * 
  * Stores all game entities. 
@@ -17,6 +15,10 @@ public class Map {
     int coinsRemaining, playerScore;
     Boolean gameOver, gameWin, gameLose;
     
+    /**
+     * Default constructor for Map objects
+     * initializes all key attributes
+     */
     Map(){
         entities = new Entity[20][20];
         playerScore = 0;
@@ -219,7 +221,6 @@ public class Map {
     /**  Manages behaviour upon collision detection for an entity and the entity it is interacting with.
      * @param newPosition The position of the entity being interacted with.
      */
-    // collision detection for the entity
     public void manageCollisionAt(Position newPosition){
         String name = getEntityNameAt(newPosition);
         Position currentPosition = this.getDiverPosition();
@@ -295,26 +296,28 @@ public class Map {
         }
     }
 
-    
-    /** Moves the shark up if the space is vacant or occupied by an entity the shark can interact with.
-     * @return True if the shark can move upwards, false otherwise.
-     */
-    public boolean moveSharkUp(){
-        Position currentPosition = shark1.getPosition();
-        Position newPosition = new Position(shark1.getPosition().getX(),shark1.getPosition().getY()-1);
-        if(this.positionIsVacant(newPosition)){
+    private Boolean moveResponse(Position currentPosition,Position newPosition,Entity entity){
+        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
             entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = shark1;
-            shark1.setPosition(newPosition);
+            entities[newPosition.getX()][newPosition.getY()] = entity;
+            entity.setPosition(newPosition);
             return true;
         }
-        else if(!this.positionIsVacant(newPosition)){
+        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
             manageCollisionAt(newPosition);
             return true;
         }
         else{
             return false;
         }
+    }
+    /** Moves the shark up if the space is vacant or occupied by an entity the shark can interact with.
+     * @return True if the shark can move upwards, false otherwise.
+     */
+    public boolean moveSharkUp(){
+        Position currentPosition = shark1.getPosition();
+        Position newPosition = new Position(shark1.getPosition().getX(),shark1.getPosition().getY()-1);
+        return moveResponse( currentPosition,newPosition,shark1);
     }
 
     
@@ -324,19 +327,7 @@ public class Map {
     public boolean moveSharkDown(){
         Position currentPosition = shark1.getPosition();
         Position newPosition = new Position(shark1.getPosition().getX(),shark1.getPosition().getY()+1);
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = shark1;
-            shark1.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,shark1);
     }
 
     
@@ -346,19 +337,7 @@ public class Map {
     public boolean moveSharkLeft(){
         Position currentPosition = shark1.getPosition();
         Position newPosition = new Position(shark1.getPosition().getX()-1,shark1.getPosition().getY());
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = shark1;
-            shark1.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,shark1);
     }
 
     
@@ -368,19 +347,7 @@ public class Map {
     public boolean moveSharkRight(){
         Position currentPosition = shark1.getPosition();
         Position newPosition = new Position(shark1.getPosition().getX()+1,shark1.getPosition().getY());
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = shark1;
-            shark1.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,shark1);
     }
 
     
@@ -390,19 +357,7 @@ public class Map {
     public boolean moveDiverUp(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()-1);
-        if(this.positionIsVacant(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,diver);
     }
 
     
@@ -412,19 +367,7 @@ public class Map {
     public boolean moveDiverDown(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX(),diver.getPosition().getY()+1);
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,diver);
     }
 
     
@@ -434,19 +377,7 @@ public class Map {
     public boolean moveDiverLeft(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()-1,diver.getPosition().getY());
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,diver);
     }
 
     
@@ -456,19 +387,7 @@ public class Map {
     public boolean moveDiverRight(){
         Position currentPosition = diver.getPosition();
         Position newPosition = new Position(diver.getPosition().getX()+1,diver.getPosition().getY());
-        if(this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            entities[currentPosition.getX()][currentPosition.getY()] = null;
-            entities[newPosition.getX()][newPosition.getY()] = diver;
-            diver.setPosition(newPosition);
-            return true;
-        }
-        else if(!this.positionIsVacant(newPosition)&&positionisValid(newPosition)){
-            manageCollisionAt(newPosition);
-            return true;
-        }
-        else{
-            return false;
-        }
+        return moveResponse( currentPosition,newPosition,diver);
     }
 
     
@@ -520,7 +439,6 @@ public class Map {
      * @param entity The given entity.
      * @param position The given position.
      */
-    //Inserts given entity at given position. Entity cannot already be present on map
     public void setEntityAt(Entity entity, Position position){
         if(this.positionIsVacant(position)){
             entities[position.getX()][position.getY()] = entity;
@@ -539,7 +457,7 @@ public class Map {
     }
 
     /** Sets the border walls for the game level.
-     * 
+     *  Used in factory methods
      */
     public void setBorderWalls(){
         for(int i = 0; i<20; i++){

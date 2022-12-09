@@ -6,7 +6,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class Tick implements Runnable{
     
+    /**
+     * Constructor for Tick
+     * @param event handles key events
+     */  
     Tick(eventManager event){
+
         this.event=event;
         Thread thread = new Thread(this);
             thread.start();

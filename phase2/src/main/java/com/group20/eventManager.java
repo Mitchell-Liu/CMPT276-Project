@@ -1,7 +1,6 @@
 package com.group20;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 
 /**
  * Listens to keyboard input and manages the tick of the game.
@@ -17,10 +16,10 @@ public class eventManager implements KeyListener{
     tickShark ts=new tickShark(this);
     Timer timer;
     //private eventManager event=new eventManager();    
-    public eventManager(Map gameMap, Board playarea, JFrame frame,Timer timer){
+    public eventManager( Board playarea, JFrame frame,Timer timer){
         this.timer=timer;
         this.frame = frame;
-        map = gameMap;
+        map = playarea.getMap();
         board = playarea;
         up=0;
         down=0;

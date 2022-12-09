@@ -10,6 +10,11 @@ public class Position{
     
     private int xPos, yPos;
 
+    /**
+     * Constructor for Position objects
+     * @param x x coordinate
+     * @param y y coordinate
+     */
     Position(int x, int y){
         xPos = x;
         yPos = y;
@@ -47,8 +52,14 @@ public class Position{
         return this.yPos;
     }
 
+    /**
+     * Overrides equals comparator
+     * Returns true if the given position matches the calling position exactly
+     * Returns false if given object is not a position or does not exactly match calling position 
+     */
     @Override
     public boolean equals(Object object){
+        //checks if given object is a Position intance
         if(object==this){
             return true;
         }
@@ -56,8 +67,10 @@ public class Position{
             return false;
         }
         
+        //cast parameter object to Position type
         Position compare = (Position) object;
 
+        //compare both x and y coordinates
         if(this.getX()!=compare.getX()||this.getY()!=compare.getY()){
             return false;
         }
